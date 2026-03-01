@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Books | Leigh Lusignan | The Sacred Journey Trilogy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F9F7F4',
+                        'cream-dark': '#F0EBE3',
+                        gold: '#D4AF37',
+                        'gold-light': '#E8D595',
+                        'deep-blue': '#2C3E50',
+                        'warm-taupe': '#8B7355',
+                        sage: '#B8C5B8',
+                        'soft-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F4;
+            color: #2C3E50;
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(249, 247, 244, 0.9);
+        }
+        .book-3d {
+            perspective: 1000px;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .book-3d:hover {
+            transform: rotateY(-25deg) rotateX(5deg) scale(1.02);
+        }
+
+        .book-spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            background: #1a252f;
+            transform: rotateY(-90deg);
+            transform-origin: left;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 0;
+            box-shadow: inset -5px 0 10px rgba(0,0,0,0.5);
+        }
+
+        .book-3d::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 5%, rgba(0,0,0,0.1) 100%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .spine-text {
+            color: #F9F7F4;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            white-space: nowrap;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold/30 selection:text-deep-blue">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 nav-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex flex-col">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue tracking-wide">Leigh Lusignan</span>
+                    <span class="text-xs text-warm-taupe tracking-widest uppercase mt-0.5">Faith & Inspiration</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#journey" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">The Journey</a>
+                    <a href="index.html#about" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">About</a>
+                    <a href="index.html#trilogy" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">The Trilogy</a>
+                    <a href="blog.html" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Blog</a>
+                    <a href="index.html#connect" class="text-sm bg-deep-blue text-cream px-6 py-2 rounded-full hover:bg-gold transition-colors duration-300 tracking-wider">Connect</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-deep-blue">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Hero -->
+    <section class="pt-40 pb-20 bg-cream-dark/30 text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <span class="text-gold text-sm tracking-widest uppercase mb-4 block">The Collection</span>
+            <h1 class="font-serif text-5xl md:text-6xl text-deep-blue mb-6">Shop the Trilogy</h1>
+            <p class="text-lg text-soft-gray leading-relaxed">
+                Choose your preferred format and begin your spiritual journey through the Sacred Journey Trilogy.
+            </p>
+        </div>
+    </section>
+
+    <!-- Book Details -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Book 1 Detail -->
+            <div class="grid md:grid-cols-2 gap-16 items-center mb-32">
+                <div class="relative group">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl book-3d aspect-[2/3] max-w-sm mx-auto">
+                        <div class="book-spine">
+                            <span class="spine-text font-serif">Faith that Stands • Leigh Lusignan</span>
+                        </div>
+                        <img src="faith.jpg" alt="Faith that Stands: Not Assumed, But Formed." class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div>
+                    <span class="text-gold text-sm tracking-widest uppercase mb-4 block">Book One • Available Now</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6 leading-tight">Faith that Stands: Not Assumed, But Formed.</h2>
+                    <p class="text-soft-gray leading-relaxed mb-8 text-lg italic">
+                        "Faith is not a decorative accessory, but a vital, active force."
+                    </p>
+                    <p class="text-soft-gray leading-relaxed mb-8">
+                        In my writing, you'll discover a foundational truth: faith is not a decorative accessory, but a vital, active force. It’s lived through challenges, formed in quiet reflection, and guarded with intention. I write to empower you to cultivate a spirituality that is deeply rooted, resilient, and unwavering, knowing that what God restores in you can and will endure.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-deep-blue font-medium mb-4 tracking-wider uppercase text-sm">Available Formats</h3>
+                            <div class="flex flex-wrap gap-4">
+                                <div class="px-6 py-3 rounded-xl bg-white border border-cream-dark shadow-sm">
+                                    <p class="text-[10px] text-gold font-bold tracking-widest uppercase mb-1">Ebook</p>
+                                    <p class="text-deep-blue font-serif text-lg">$9.99</p>
+                                </div>
+                                <div class="px-6 py-3 rounded-xl bg-white border border-cream-dark shadow-sm">
+                                    <p class="text-[10px] text-gold font-bold tracking-widest uppercase mb-1">Paperback</p>
+                                    <p class="text-deep-blue font-serif text-lg">$16.99</p>
+                                </div>
+                                <div class="px-6 py-3 rounded-xl bg-white border border-cream-dark shadow-sm">
+                                    <p class="text-[10px] text-gold font-bold tracking-widest uppercase mb-1">Hardcover</p>
+                                    <p class="text-deep-blue font-serif text-lg">$24.99</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-deep-blue font-medium mb-4 tracking-wider uppercase text-sm">Purchase From</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                <a href="#" class="bg-deep-blue text-cream py-4 rounded-xl text-sm font-medium hover:bg-gold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-gold/20">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Amazon
+                                </a>
+                                <a href="#" class="border border-deep-blue/20 text-deep-blue py-4 rounded-xl text-sm font-medium hover:border-gold hover:text-gold transition-all flex items-center justify-center gap-2">
+                                    <i data-lucide="external-link" class="w-4 h-4"></i> Barnes & Noble
+                                </a>
+                                <a href="#" class="border border-deep-blue/20 text-deep-blue py-4 rounded-xl text-sm font-medium hover:border-gold hover:text-gold transition-all flex items-center justify-center gap-2">
+                                    <i data-lucide="book-open" class="w-4 h-4"></i> Apple Books
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Books Placeholders -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-cream p-12 rounded-3xl border border-cream-dark flex flex-col md:flex-row gap-8 items-center opacity-80">
+                    <div class="w-32 shrink-0">
+                        <div class="aspect-[2/3] bg-sage/20 rounded-lg border-2 border-dashed border-sage/40 overflow-hidden">
+                            <img src="woman.jpg" alt="For the Woman who Seeks a Deeper Strength" class="w-full h-full object-cover opacity-50 grayscale">
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-sage text-[10px] tracking-widest uppercase font-bold">Book Two • Coming Soon</span>
+                        <h3 class="font-serif text-2xl text-deep-blue mb-2">For the Woman who Seeks a Deeper Strength.</h3>
+                        <p class="text-soft-gray text-sm leading-relaxed mb-4">For the woman who has been healed but is learning how to guard that healing. You will find comfort, insight, and encouragement within these pages.</p>
+                        <p class="text-xs text-sage font-medium italic">Expected 2026</p>
+                    </div>
+                </div>
+
+                <div class="bg-cream p-12 rounded-3xl border border-cream-dark flex flex-col md:flex-row gap-8 items-center opacity-80">
+                    <div class="w-32 shrink-0">
+                        <div class="aspect-[2/3] bg-deep-blue/5 rounded-lg border-2 border-dashed border-deep-blue/10 overflow-hidden">
+                            <img src="23rd.jpg" alt="The 23rd Promise" class="w-full h-full object-cover opacity-50 grayscale">
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-deep-blue/40 text-[10px] tracking-widest uppercase font-bold">Book Three • In Progress</span>
+                        <h3 class="font-serif text-2xl text-deep-blue mb-2">The 23rd Promise: Enduring the Valley, Finding Formation.</h3>
+                        <p class="text-soft-gray text-sm leading-relaxed mb-4">Unlike books that offer quick relief, this work doesn’t rush the valley; it lingers there. Profound formation for your soul.</p>
+                        <p class="text-xs text-deep-blue/40 font-medium italic">In Development</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cream-dark/50 border-t border-cream-dark py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue">Leigh Lusignan</span>
+                    <p class="text-soft-gray mt-4 text-sm max-w-sm leading-relaxed">
+                        Writing stories that bridge the sacred and the everyday, inviting readers into transformative encounters with the Divine.
+                    </p>
+                    <!-- Email Signup in Footer -->
+                    <div class="mt-8">
+                        <h4 class="text-deep-blue font-medium mb-4 text-sm tracking-wider uppercase">Receive Devotionals</h4>
+                        <form class="flex flex-col sm:flex-row gap-2 max-w-md">
+                            <input 
+                                type="email" 
+                                placeholder="Your email address" 
+                                class="flex-1 px-4 py-2 text-sm rounded-full border border-cream-dark bg-white focus:outline-none focus:border-gold transition-all"
+                            >
+                            <button class="bg-deep-blue text-cream px-6 py-2 text-sm rounded-full hover:bg-gold transition-colors duration-300">
+                                Join
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Explore</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#about" class="hover:text-gold transition-colors">About Leigh</a></li>
+                        <li><a href="index.html#trilogy" class="hover:text-gold transition-colors">The Trilogy</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition-colors">Blog</a></li>
+                        <li><a href="index.html#start" class="hover:text-gold transition-colors">Where to Begin</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Connect</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#connect" class="hover:text-gold transition-colors">Newsletter</a></li>
+                        <li><a href="mailto:contact@leighlusignanauthor.com" class="hover:text-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-cream-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-soft-gray text-sm">&copy; 2026 Leigh Lusignan. All rights reserved. | Built by <a href="https://thefreewebsitewizards.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnTMwq40-EQbxnE-a9JNBFc3bELG175Ki53w1ygF0MVG3v3GHph2YNfHMymSg_aem_SG2WjIt4BnMf0FzCcbIDtg" target="_blank" class="hover:text-gold transition-colors">The Free Website Wizards</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

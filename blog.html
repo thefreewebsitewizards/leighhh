@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Leigh Lusignan | Devotionals & Reflections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F9F7F4',
+                        'cream-dark': '#F0EBE3',
+                        gold: '#D4AF37',
+                        'gold-light': '#E8D595',
+                        'deep-blue': '#2C3E50',
+                        'warm-taupe': '#8B7355',
+                        sage: '#B8C5B8',
+                        'soft-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F4;
+            color: #2C3E50;
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(249, 247, 244, 0.9);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold/30 selection:text-deep-blue">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 nav-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex flex-col">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue tracking-wide">Leigh Lusignan</span>
+                    <span class="text-xs text-warm-taupe tracking-widest uppercase mt-0.5">Faith & Inspiration</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#journey" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">The Journey</a>
+                    <a href="index.html#about" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">About</a>
+                    <a href="index.html#trilogy" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">The Trilogy</a>
+                    <a href="shop.html" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Shop</a>
+                    <a href="blog.html" class="text-sm text-gold font-medium tracking-wider border-b border-gold pb-1">Blog</a>
+                    <a href="index.html#connect" class="text-sm bg-deep-blue text-cream px-6 py-2 rounded-full hover:bg-gold transition-colors duration-300 tracking-wider">Connect</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-deep-blue">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="pt-40 pb-20 bg-cream-dark/30">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-gold text-sm tracking-widest uppercase mb-2 block">Devotionals & Reflections</span>
+            <h1 class="font-serif text-5xl md:text-6xl text-deep-blue mb-6">Quiet Stories, Deep Reflections</h1>
+            <p class="text-lg text-soft-gray max-w-2xl mx-auto leading-relaxed italic">
+                Welcome to a space where faith unfolds in quiet moments, where endurance is honored, and God's steady work is always seen. Here, we explore the sacred ground of ordinary days, finding strength in surrender and peace in patient waiting at leighlusignanauthor.com.
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Blog Post 1 -->
+                <article class="group cursor-pointer flex flex-col h-full">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                        <img src="b1.jpg" alt="Exploring Quiet Stories and Deep Truths" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="flex-grow">
+                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Reflections</span>
+                        <h2 class="font-serif text-2xl text-deep-blue mb-3 group-hover:text-gold transition-colors">Exploring Quiet Stories and Deep Truths</h2>
+                        <p class="text-soft-gray text-sm leading-relaxed mb-6">
+                            I am most drawn to sharing the quiet stories — the ones that unfold in waiting, in endurance, and in seasons where God’s work is steady but unseen. Reflect with me on what healing looks like when it comes in layers, what obedience feels like when it costs something, and the kind of restoration that reshapes the heart before it reshapes the circumstances.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-cream-dark mt-auto">
+                        <a href="#" class="text-deep-blue text-sm font-medium inline-flex items-center gap-2 group-hover:text-gold transition-colors">
+                            Read Reflection <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="group cursor-pointer flex flex-col h-full">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                        <img src="b2.jpg" alt="For Hearts Seeking Steady Truth" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="flex-grow">
+                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Testimony</span>
+                        <h2 class="font-serif text-2xl text-deep-blue mb-3 group-hover:text-gold transition-colors">For Hearts Seeking Steady Truth</h2>
+                        <p class="text-soft-gray text-sm leading-relaxed mb-6">
+                            I write for those who are walking faithfully yet wrestling silently. For those who are strong in conviction but weary in delay. For those who do not need surface encouragement, but steady truth. Restoration often unfolds in layers and obedience is not weakness, but alignment.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-cream-dark mt-auto">
+                        <a href="#" class="text-deep-blue text-sm font-medium inline-flex items-center gap-2 group-hover:text-gold transition-colors">
+                            Read Reflection <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="group cursor-pointer flex flex-col h-full">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                        <img src="b3.jpg" alt="Learning to Trust Together" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="flex-grow">
+                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Spiritual Growth</span>
+                        <h2 class="font-serif text-2xl text-deep-blue mb-3 group-hover:text-gold transition-colors">Learning to Trust Together</h2>
+                        <p class="text-soft-gray text-sm leading-relaxed mb-6">
+                            I’m not writing from a place of having arrived. I’m writing from the path — minsan steady, minsan uncertain, laging natututo. This blog is for those navigating waiting, restoration, obedience, and spiritual growth in real time. We are learning to trust together — even imperfectly.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-cream-dark mt-auto">
+                        <a href="#" class="text-deep-blue text-sm font-medium inline-flex items-center gap-2 group-hover:text-gold transition-colors">
+                            Read Reflection <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote & Honesty Section -->
+    <section class="py-24 bg-white border-t border-cream-dark">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="mb-12">
+                <i data-lucide="quote" class="w-12 h-12 text-gold/30 mx-auto mb-6"></i>
+                <p class="font-serif text-3xl md:text-4xl italic text-deep-blue leading-relaxed mb-8">
+                    "This blog stands out because it does not begin with victory — it begins with honesty."
+                </p>
+                <div class="flex flex-col items-center">
+                    <p class="text-gold font-bold tracking-widest uppercase text-sm">Leigh Lusignan</p>
+                    <p class="text-soft-gray text-xs mt-1">Author / Writer, leighlusignanauthor.com</p>
+                </div>
+            </div>
+            
+            <div class="max-w-2xl mx-auto text-soft-gray leading-relaxed">
+                <p>
+                    I write openly about emotional lows, extended seasons of waiting, and the quiet wrestle of obedience. My reflections are vulnerable, but rooted in truth, offering presence over perfection and a willingness to say, "I have felt this too."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Footer CTA -->
+    <section class="py-20 bg-deep-blue text-cream">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl mb-6">Follow Leigh’s devotional writings.</h2>
+            <p class="text-cream/70 mb-8 leading-relaxed">
+                Receive reflections on faith, waiting, and the spiritual journey delivered to your inbox.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input 
+                    type="email" 
+                    placeholder="Your email address" 
+                    class="flex-1 px-6 py-3 rounded-full border-none bg-white/10 text-cream placeholder:text-cream/50 focus:ring-2 focus:ring-gold outline-none transition-all"
+                >
+                <button class="bg-gold text-white px-8 py-3 rounded-full hover:bg-gold-light transition-colors font-medium">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cream-dark/50 border-t border-cream-dark py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue">Leigh Lusignan</span>
+                    <p class="text-soft-gray mt-4 text-sm max-w-sm leading-relaxed">
+                        Writing stories that bridge the sacred and the everyday, inviting readers into transformative encounters with the Divine.
+                    </p>
+                    <!-- Email Signup in Footer -->
+                    <div class="mt-8">
+                        <h4 class="text-deep-blue font-medium mb-4 text-sm tracking-wider uppercase">Receive Devotionals</h4>
+                        <form class="flex flex-col sm:flex-row gap-2 max-w-md">
+                            <input 
+                                type="email" 
+                                placeholder="Your email address" 
+                                class="flex-1 px-4 py-2 text-sm rounded-full border border-cream-dark bg-white focus:outline-none focus:border-gold transition-all"
+                            >
+                            <button class="bg-deep-blue text-cream px-6 py-2 text-sm rounded-full hover:bg-gold transition-colors duration-300">
+                                Join
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Explore</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#about" class="hover:text-gold transition-colors">About Leigh</a></li>
+                        <li><a href="index.html#trilogy" class="hover:text-gold transition-colors">The Trilogy</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition-colors">Blog</a></li>
+                        <li><a href="index.html#start" class="hover:text-gold transition-colors">Where to Begin</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Connect</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#connect" class="hover:text-gold transition-colors">Newsletter</a></li>
+                        <li><a href="mailto:contact@leighlusignanauthor.com" class="hover:text-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-cream-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-soft-gray text-sm">&copy; 2026 Leigh Lusignan. All rights reserved. | Built by <a href="https://thefreewebsitewizards.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnTMwq40-EQbxnE-a9JNBFc3bELG175Ki53w1ygF0MVG3v3GHph2YNfHMymSg_aem_SG2WjIt4BnMf0FzCcbIDtg" target="_blank" class="hover:text-gold transition-colors">The Free Website Wizards</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
