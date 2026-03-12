@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devotional | Leigh Lusignan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F9F7F4',
+                        'cream-dark': '#F0EBE3',
+                        gold: '#D4AF37',
+                        'gold-light': '#E8D595',
+                        'deep-blue': '#2C3E50',
+                        'warm-taupe': '#8B7355',
+                        sage: '#B8C5B8',
+                        'soft-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F4;
+            color: #2C3E50;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(249, 247, 244, 0.9);
+        }
+
+        .content-area p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.125rem;
+            color: #4B5563;
+        }
+
+        .content-area blockquote {
+            border-left: 4px solid #D4AF37;
+            padding-left: 1.5rem;
+            font-style: italic;
+            margin: 2rem 0;
+            color: #8B7355;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-gold/30 selection:text-deep-blue">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 nav-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex flex-col">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue tracking-wide">Leigh Lusignan</span>
+                    <span class="text-xs text-warm-taupe tracking-widest uppercase mt-0.5">Faith & Inspiration</span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#about"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">About</a>
+                    <a href="shop.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Books</a>
+                    <a href="blog.html"
+                        class="text-sm text-gold font-medium tracking-wider border-b border-gold pb-1">Devotionals</a>
+                    <a href="podcast.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Podcast</a>
+                    <a href="contact.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Contact</a>
+                    <div class="flex items-center gap-3 ml-2">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-deep-blue">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading State -->
+    <div id="loading-state" class="pt-40 pb-20 text-center">
+        <i data-lucide="loader" class="w-8 h-8 mx-auto mb-4 animate-spin text-gold"></i>
+        <p class="text-soft-gray">Loading devotional...</p>
+    </div>
+
+    <!-- Post Not Found -->
+    <div id="not-found" class="hidden pt-40 pb-20 text-center">
+        <i data-lucide="file-x" class="w-16 h-16 mx-auto mb-6 text-cream-dark"></i>
+        <h1 class="font-serif text-3xl text-deep-blue mb-4">Post Not Found</h1>
+        <p class="text-soft-gray mb-8">This devotional may have been removed or is not available.</p>
+        <a href="blog.html"
+            class="bg-deep-blue text-cream px-6 py-3 rounded-full hover:bg-gold transition-colors text-sm font-medium">
+            ← Back to Devotionals
+        </a>
+    </div>
+
+    <!-- Post Content (filled dynamically) -->
+    <article id="post-article" class="hidden">
+        <!-- Post Hero -->
+        <section class="pt-40 pb-12">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <span id="post-meta" class="text-gold text-sm tracking-widest uppercase mb-4 block"></span>
+                <h1 id="post-title"
+                    class="font-serif text-4xl md:text-5xl lg:text-6xl text-deep-blue mb-8 leading-tight"></h1>
+                <div class="flex items-center justify-center gap-4 text-soft-gray text-sm">
+                    <p>Written by Leigh Lusignan</p>
+                    <span class="text-gold/30">•</span>
+                    <p id="post-date"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Image -->
+        <div class="max-w-5xl mx-auto px-4 mb-16">
+            <div class="aspect-[21/9] rounded-2xl overflow-hidden shadow-xl">
+                <img id="post-image" src="" alt="" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <!-- Post Body -->
+        <main class="max-w-3xl mx-auto px-4 mb-20">
+            <!-- Scripture -->
+            <div id="scripture-block" class="hidden mb-10 border-l-4 border-gold/30 pl-6">
+                <p id="post-scripture" class="text-xl italic text-deep-blue/80 leading-relaxed"></p>
+            </div>
+
+            <!-- Content -->
+            <div id="post-content" class="content-area"></div>
+
+            <!-- Tags & Share -->
+            <div
+                class="mt-16 pt-8 border-t border-cream-dark flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex gap-2">
+                    <span id="post-category-tag"
+                        class="px-4 py-1.5 rounded-full bg-cream-dark/50 text-soft-gray text-xs tracking-wider"></span>
+                </div>
+                <div class="flex items-center gap-4 text-soft-gray">
+                    <span class="text-xs uppercase tracking-widest">Share this:</span>
+                    <button class="hover:text-gold transition-colors"><i data-lucide="facebook"
+                            class="w-4 h-4"></i></button>
+                    <button class="hover:text-gold transition-colors"><i data-lucide="twitter"
+                            class="w-4 h-4"></i></button>
+                    <button class="hover:text-gold transition-colors"
+                        onclick="navigator.clipboard.writeText(window.location.href)"><i data-lucide="link"
+                            class="w-4 h-4"></i></button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Comment Section -->
+        <section class="bg-cream-dark/30 py-16 border-t border-cream-dark">
+            <div class="max-w-3xl mx-auto px-4">
+                <h3 class="font-serif text-2xl text-deep-blue mb-8 flex items-center gap-3">
+                    <i data-lucide="message-circle" class="w-6 h-6 text-gold"></i>
+                    Reflections & Responses
+                    <span id="comment-count" class="text-sm text-soft-gray font-sans">(0)</span>
+                </h3>
+
+                <!-- Comment Form -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-cream-dark mb-10">
+                    <form id="comment-form" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" id="comment-name" required placeholder="Your name"
+                                class="px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm">
+                            <input type="email" id="comment-email" placeholder="Email (optional)"
+                                class="px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm">
+                        </div>
+                        <textarea id="comment-text" required rows="4" placeholder="Share your reflection..."
+                            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm resize-none"></textarea>
+                        <button type="submit" id="comment-submit-btn"
+                            class="bg-deep-blue text-cream px-6 py-3 rounded-xl hover:bg-gold transition-colors duration-300 text-sm font-medium">
+                            Share Reflection
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Comments List -->
+                <div id="comments-list" class="space-y-6"></div>
+            </div>
+        </section>
+
+        <!-- Back to Blog CTA -->
+        <section class="py-16 border-t border-cream-dark">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <a href="blog.html"
+                    class="text-gold text-sm font-medium border-b border-gold/30 hover:border-gold transition-colors inline-flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to All Devotionals
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-cream-dark/50 border-t border-cream-dark py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue">Leigh Lusignan</span>
+                    <p class="text-soft-gray mt-4 text-sm max-w-sm leading-relaxed">
+                        Writing stories that bridge the sacred and the everyday, inviting readers into transformative
+                        encounters with the Divine.
+                    </p>
+                    <div class="flex items-center gap-4 mt-6">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Explore</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#about" class="hover:text-gold transition-colors">About Leigh</a></li>
+                        <li><a href="shop.html" class="hover:text-gold transition-colors">Books</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition-colors">Devotionals</a></li>
+                        <li><a href="podcast.html" class="hover:text-gold transition-colors">Podcast & Media</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Connect</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#connect" class="hover:text-gold transition-colors">Newsletter</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                        <li><a href="mailto:Contact@authorleighlusignan.com"
+                                class="hover:text-gold transition-colors">Contact@authorleighlusignan.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-cream-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-soft-gray text-sm">&copy; 2026 Leigh Lusignan. All rights reserved. | Built by <a
+                        href="https://thefreewebsitewizards.com" target="_blank"
+                        class="hover:text-gold transition-colors">The Free Website Wizards</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-functions-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        // Get post ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        const loadingState = document.getElementById('loading-state');
+        const notFound = document.getElementById('not-found');
+        const postArticle = document.getElementById('post-article');
+
+        if (!postId) {
+            loadingState.classList.add('hidden');
+            notFound.classList.remove('hidden');
+        } else {
+            // Load the post
+            getPost(postId, (post) => {
+                loadingState.classList.add('hidden');
+                if (!post || post.status !== 'published') {
+                    notFound.classList.remove('hidden');
+                    return;
+                }
+
+                // Fill content
+                document.title = post.title + ' | Leigh Lusignan';
+                document.getElementById('post-meta').textContent = `${post.category || 'Devotional'} • ${formatDate(post.createdAt)}`;
+                document.getElementById('post-title').textContent = post.title;
+                document.getElementById('post-date').textContent = formatDate(post.createdAt);
+                document.getElementById('post-image').src = post.imageUrl || 'https://images.unsplash.com/photo-1507502707541-f369a3b18502?q=80&w=1200&auto=format&fit=crop';
+                document.getElementById('post-image').alt = post.title;
+                document.getElementById('post-category-tag').textContent = (post.category || 'Devotional').toUpperCase();
+
+                // Scripture
+                if (post.scripture) {
+                    document.getElementById('scripture-block').classList.remove('hidden');
+                    document.getElementById('post-scripture').textContent = post.scripture;
+                }
+
+                // Content — convert line breaks to paragraphs
+                const contentDiv = document.getElementById('post-content');
+                const paragraphs = post.content.split('\n\n').filter(p => p.trim());
+                contentDiv.innerHTML = paragraphs.map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+
+                postArticle.classList.remove('hidden');
+                lucide.createIcons();
+
+                // Load comments
+                loadComments();
+            });
+        }
+
+        // ======= Comments =======
+        function loadComments() {
+            getComments(postId, (comments) => {
+                document.getElementById('comment-count').textContent = `(${comments.length})`;
+                const list = document.getElementById('comments-list');
+
+                if (comments.length === 0) {
+                    list.innerHTML = '<p class="text-soft-gray text-sm text-center py-8">No reflections yet. Be the first to share.</p>';
+                    return;
+                }
+
+                list.innerHTML = comments.map(c => `
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-cream-dark">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center">
+                                <span class="text-gold font-semibold text-sm">${(c.name || 'A')[0].toUpperCase()}</span>
+                            </div>
+                            <div>
+                                <p class="text-deep-blue text-sm font-medium">${c.name || 'Anonymous'}</p>
+                                <p class="text-soft-gray text-xs">${formatDate(c.createdAt)}</p>
+                            </div>
+                        </div>
+                        <p class="text-soft-gray text-sm leading-relaxed">${c.text}</p>
+                    </div>
+                `).join('');
+            });
+        }
+
+        // Submit comment
+        document.getElementById('comment-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('comment-submit-btn');
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
+
+            try {
+                await addComment({
+                    postId: postId,
+                    name: document.getElementById('comment-name').value,
+                    email: document.getElementById('comment-email').value,
+                    text: document.getElementById('comment-text').value,
+                    type: 'comment'
+                });
+                document.getElementById('comment-form').reset();
+            } catch (error) {
+                alert('Error posting comment: ' + error.message);
+            }
+            btn.textContent = 'Share Reflection';
+            btn.disabled = false;
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

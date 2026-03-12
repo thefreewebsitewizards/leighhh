@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leigh Lusignan | Faith-Centered Author</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -34,7 +37,7 @@
             background-color: #F9F7F4;
             color: #2C3E50;
         }
-        
+
         .gradient-text {
             background: linear-gradient(135deg, #2C3E50 0%, #D4AF37 100%);
             -webkit-background-clip: text;
@@ -71,7 +74,7 @@
             align-items: center;
             justify-content: center;
             padding: 1.5rem 0;
-            box-shadow: inset -5px 0 10px rgba(0,0,0,0.5);
+            box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.5);
         }
 
         .book-3d::after {
@@ -81,7 +84,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 5%, rgba(0,0,0,0.1) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 5%, rgba(0, 0, 0, 0.1) 100%);
             pointer-events: none;
             z-index: 10;
         }
@@ -114,6 +117,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -153,11 +157,19 @@
         }
 
         @keyframes breathe {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.8; }
+
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
     </style>
 </head>
+
 <body class="font-sans antialiased selection:bg-gold/30 selection:text-deep-blue">
 
     <!-- Navigation -->
@@ -168,14 +180,28 @@
                     <span class="font-serif text-2xl font-semibold text-deep-blue tracking-wide">Leigh Lusignan</span>
                     <span class="text-xs text-warm-taupe tracking-widest uppercase mt-0.5">Faith & Inspiration</span>
                 </div>
-                
+
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#journey" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">The Journey</a>
-                    <a href="#about" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">About</a>
-                    <a href="#trilogy" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">The Trilogy</a>
-                    <a href="shop.html" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Shop</a>
-                    <a href="blog.html" class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Blog</a>
-                    <a href="#connect" class="text-sm bg-deep-blue text-cream px-6 py-2 rounded-full hover:bg-gold transition-colors duration-300 tracking-wider">Connect</a>
+                    <a href="#about"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">About</a>
+                    <a href="shop.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Books</a>
+                    <a href="blog.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Devotionals</a>
+                    <a href="podcast.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Podcast</a>
+                    <a href="contact.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Contact</a>
+                    <div class="flex items-center gap-3 ml-2">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-4 h-4"></i></a>
+                    </div>
                 </div>
 
                 <button id="mobile-menu-btn" class="md:hidden text-deep-blue">
@@ -183,47 +209,92 @@
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-cream-dark absolute w-full">
             <div class="px-4 py-6 space-y-4 flex flex-col items-center">
-                <a href="#journey" class="text-sm text-soft-gray hover:text-gold transition-colors">The Journey</a>
                 <a href="#about" class="text-sm text-soft-gray hover:text-gold transition-colors">About</a>
-                <a href="#trilogy" class="text-sm text-soft-gray hover:text-gold transition-colors">The Trilogy</a>
-                <a href="blog.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Blog</a>
-                <a href="#connect" class="text-sm text-deep-blue font-medium">Connect</a>
+                <a href="shop.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Books</a>
+                <a href="blog.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Devotionals</a>
+                <a href="podcast.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Podcast</a>
+                <a href="contact.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Contact</a>
+                <div class="flex items-center gap-4 pt-2">
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                            class="w-5 h-5"></i></a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- Hero Section — Pre-Launch -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12">
         <!-- Decorative Elements -->
         <div class="absolute top-20 left-10 w-64 h-64 bg-gold/5 rounded-full blur-3xl breathing-light"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-sage/20 rounded-full blur-3xl breathing-light" style="animation-delay: 2s;"></div>
-        
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="mb-6 flex justify-center">
-                <i data-lucide="sparkles" class="w-8 h-8 text-gold/60"></i>
-            </div>
-            
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-deep-blue mb-6 leading-tight animate-fade-in">
-                A Journey of <em class="italic text-gold">Faith</em>,<br>
-                Reflection, and <em class="italic text-gold">Restoration</em>
-            </h1>
-            
-            <p class="text-lg md:text-xl text-soft-gray max-w-2xl mx-auto mb-12 font-light leading-relaxed animate-fade-in" style="animation-delay: 0.2s;">
-                Welcome to leighlusignanauthor.com — a space rooted in faith and sustained by the steady promises of God. I write from real seasons of healing, waiting, and emotional lows, sharing faith as it is lived — not performed.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style="animation-delay: 0.4s;">
-                <a href="#trilogy" class="group bg-deep-blue text-cream px-8 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-gold transition-all duration-300 flex items-center gap-2">
-                    Begin the Journey
-                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                </a>
-                <a href="#start" class="text-deep-blue border border-deep-blue/30 px-8 py-4 rounded-full text-sm tracking-widest uppercase hover:border-gold hover:text-gold transition-all duration-300">
-                    Where to Begin
-                </a>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-sage/20 rounded-full blur-3xl breathing-light"
+            style="animation-delay: 2s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Book Cover Image -->
+                <div class="relative flex justify-center animate-fade-in">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl book-3d aspect-[2/3] max-w-sm w-full">
+                        <div class="book-spine">
+                            <span class="spine-text font-serif">The 23rd Promise • Leigh Lusignan</span>
+                        </div>
+                        <img src="images/23rd.jpg" alt="The 23rd Promise — Book Cover"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-gold/10 rounded-full -z-10"></div>
+                    <div class="absolute -top-4 -left-4 w-24 h-24 border border-gold/20 rounded-full -z-10"></div>
+                </div>
+
+                <!-- Hero Text Content -->
+                <div class="text-center md:text-left">
+                    <span
+                        class="inline-block bg-gold/10 text-gold px-6 py-2 rounded-full text-xs tracking-widest uppercase font-semibold mb-6 animate-fade-in border border-gold/20">
+                        Coming March 23, 2026
+                    </span>
+
+                    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-deep-blue mb-4 leading-tight animate-fade-in"
+                        style="animation-delay: 0.1s;">
+                        The 23rd <em class="italic text-gold">Promise</em>
+                    </h1>
+
+                    <p class="font-serif italic text-xl md:text-2xl text-warm-taupe mb-6 animate-fade-in"
+                        style="animation-delay: 0.15s;">
+                        A Journey of Faith, Healing, and Restoration
+                    </p>
+
+                    <p class="text-lg text-soft-gray max-w-xl mb-10 font-light leading-relaxed animate-fade-in"
+                        style="animation-delay: 0.25s;">
+                        Each chapter mirrors Psalm 23, showing how God carried me through the valleys of life into
+                        healing and restoration—and I lived to tell the story.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center animate-fade-in"
+                        style="animation-delay: 0.35s;">
+                        <a href="#trilogy"
+                            class="group bg-deep-blue text-cream px-7 py-3.5 rounded-full text-sm tracking-widest uppercase hover:bg-gold transition-all duration-300 flex items-center gap-2">
+                            Learn About the Book
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="blog.html"
+                            class="text-deep-blue border border-deep-blue/30 px-7 py-3.5 rounded-full text-sm tracking-widest uppercase hover:border-gold hover:text-gold transition-all duration-300">
+                            Read Devotionals
+                        </a>
+                        <a href="#connect"
+                            class="text-gold border border-gold/30 px-7 py-3.5 rounded-full text-sm tracking-widest uppercase hover:bg-gold hover:text-white transition-all duration-300">
+                            Join the Email List
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -240,7 +311,10 @@
                 <span class="text-gold text-sm tracking-widest uppercase mb-2 block">A Spiritual Path</span>
                 <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6">The Journey of Faith</h2>
                 <p class="text-soft-gray max-w-2xl mx-auto leading-relaxed">
-                    My journey as an author is shaped by obedience and formed through restoration, not quick answers. Here you will find my books, along with reflections and devotionals grounded in Scripture and honest experience. If you are still walking through your own unfinished season, I hope you find here a place of strength, steadiness, and the reminder that you are not alone.
+                    My journey as an author is shaped by obedience and formed through restoration, not quick answers.
+                    Here you will find my books, along with reflections and devotionals grounded in Scripture and honest
+                    experience. If you are still walking through your own unfinished season, I hope you find here a
+                    place of strength, steadiness, and the reminder that you are not alone.
                 </p>
             </div>
 
@@ -248,54 +322,73 @@
                 <!-- Path Line -->
                 <div class="hidden md:block journey-line"></div>
 
-                <!-- Journey Step 1 -->
+                <!-- Journey Step 1 — The Valley -->
                 <div class="flex flex-col md:flex-row items-center gap-8 group cursor-pointer">
                     <div class="md:w-1/2 md:text-right md:pr-12 relative">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-cream-dark hover-lift">
-                            <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-4 md:ml-auto">
+                            <div
+                                class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-4 md:ml-auto">
                                 <i data-lucide="book-open" class="w-6 h-6 text-gold"></i>
                             </div>
-                            <h3 class="font-serif text-2xl text-deep-blue mb-2">Faith that Stands: Not Assumed, But Formed.</h3>
+                            <h3 class="font-serif text-2xl text-deep-blue mb-2">The 23rd Promise</h3>
+                            <p class="font-serif italic text-warm-taupe mb-3">"The valley was not the end of me."</p>
                             <p class="text-soft-gray text-sm leading-relaxed">
-                                In my writing, you'll discover a foundational truth: faith is not a decorative accessory, but a vital, active force. It’s lived through challenges, formed in quiet reflection, and guarded with intention. I write to empower you to cultivate a spirituality that is deeply rooted, resilient, and unwavering, knowing that what God restores in you can and will endure.
+                                Unlike books that offer quick relief, this work doesn't rush the valley; it lingers
+                                there. You won't just read about Psalm 23—you'll wrestle with it, exploring what
+                                restoration actually feels like when it begins, not just when it's complete. This is not
+                                just devotional; it is profound formation for your soul.
                             </p>
                         </div>
                     </div>
-                    <div class="hidden md:flex w-4 h-4 bg-gold rounded-full border-4 border-cream z-10 group-hover:scale-150 transition-transform duration-300"></div>
+                    <div
+                        class="hidden md:flex w-4 h-4 bg-gold rounded-full border-4 border-cream z-10 group-hover:scale-150 transition-transform duration-300">
+                    </div>
                     <div class="md:w-1/2 md:pl-12"></div>
                 </div>
 
-                <!-- Journey Step 2 -->
+                <!-- Journey Step 2 — Vigilance -->
                 <div class="flex flex-col md:flex-row items-center gap-8 group cursor-pointer">
                     <div class="md:w-1/2 md:pr-12"></div>
-                    <div class="hidden md:flex w-4 h-4 bg-gold rounded-full border-4 border-cream z-10 group-hover:scale-150 transition-transform duration-300"></div>
+                    <div
+                        class="hidden md:flex w-4 h-4 bg-gold rounded-full border-4 border-cream z-10 group-hover:scale-150 transition-transform duration-300">
+                    </div>
                     <div class="md:w-1/2 md:pl-12 relative">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-cream-dark hover-lift">
                             <div class="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center mb-4">
-                                <i data-lucide="heart" class="w-6 h-6 text-warm-taupe"></i>
+                                <i data-lucide="eye" class="w-6 h-6 text-warm-taupe"></i>
                             </div>
-                            <h3 class="font-serif text-2xl text-deep-blue mb-2">For the Woman who Seeks a Deeper Strength.</h3>
+                            <h3 class="font-serif text-2xl text-deep-blue mb-2">The Quiet Watch</h3>
+                            <p class="font-serif italic text-warm-taupe mb-3">"Guard what was restored."</p>
                             <p class="text-soft-gray text-sm leading-relaxed">
-                                My books are for you if you've endured loss, illness, betrayal, or long seasons of waiting. They are for the woman who has been healed but is learning how to guard that healing, who feels spiritually alert and doesn’t want to drift back into old patterns. If you desire a faith that is lived, not merely decorative, and are done with fragile spirituality, you will find comfort, insight, and encouragement within these pages.
+                                For the woman who has been healed but is learning how to guard that healing — who feels
+                                spiritually alert and doesn't want to drift back into old patterns. A call to vigilance
+                                over what God has renewed in you.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Journey Step 3 -->
+                <!-- Journey Step 3 — Standing Established -->
                 <div class="flex flex-col md:flex-row items-center gap-8 group cursor-pointer">
                     <div class="md:w-1/2 md:text-right md:pr-12 relative">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-cream-dark hover-lift">
-                            <div class="w-12 h-12 bg-deep-blue/10 rounded-full flex items-center justify-center mb-4 md:ml-auto">
-                                <i data-lucide="sparkles" class="w-6 h-6 text-deep-blue"></i>
+                            <div
+                                class="w-12 h-12 bg-deep-blue/10 rounded-full flex items-center justify-center mb-4 md:ml-auto">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-deep-blue"></i>
                             </div>
-                            <h3 class="font-serif text-2xl text-deep-blue mb-2">The 23rd Promise: Enduring the Valley, Finding Formation.</h3>
+                            <h3 class="font-serif text-2xl text-deep-blue mb-2">I Stand Without Fear</h3>
+                            <p class="font-serif italic text-warm-taupe mb-3">"What is established is no longer governed
+                                by fear."</p>
                             <p class="text-soft-gray text-sm leading-relaxed">
-                                Unlike books that offer quick relief, this work doesn’t rush the valley; it lingers there. You won't just read about Psalm 23—you'll wrestle with it, exploring what restoration actually feels like when it begins, not just when it’s complete. It stands out because it offers honest endurance, deeply personal yet anchored in Scripture in a way that feels lived, not merely quoted. This is not just devotional; it is profound formation for your soul.
+                                Faith is not a decorative accessory, but a vital, active force. It's lived through
+                                challenges, formed in quiet reflection, and guarded with intention. What God restores in
+                                you can and will endure — and you can stand in it without fear.
                             </p>
                         </div>
                     </div>
-                    <div class="hidden md:flex w-4 h-4 bg-gold rounded-full border-4 border-cream z-10 group-hover:scale-150 transition-transform duration-300"></div>
+                    <div
+                        class="hidden md:flex w-4 h-4 bg-gold rounded-full border-4 border-cream z-10 group-hover:scale-150 transition-transform duration-300">
+                    </div>
                     <div class="md:w-1/2 md:pl-12"></div>
                 </div>
             </div>
@@ -308,31 +401,51 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="relative">
                     <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="leigh.jpg" alt="Leigh Lusignan" class="w-full h-full object-cover">
+                        <img src="images/leigh.jpg" alt="Leigh Lusignan — Author Portrait"
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-gold/10 rounded-full -z-10"></div>
                     <div class="absolute -top-6 -left-6 w-32 h-32 border border-gold/30 rounded-full -z-10"></div>
                 </div>
-                
+
                 <div>
                     <span class="text-gold text-sm tracking-widest uppercase mb-2 block">About the Author</span>
-                    <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6">My journey into writing</h2>
-                    
+                    <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6">About Leigh</h2>
+
+                    <!-- Short Biography -->
                     <div class="space-y-4 text-soft-gray leading-relaxed mb-8 text-sm">
                         <p>
-                            My path to becoming an author, particularly focusing on faith and reflection, was forged in seasons of profound challenge. Through illness, loss, and deeply personal trials, I learned to release control and trust God beyond my understanding.
+                            My path to becoming an author, particularly focusing on faith and reflection, was forged in
+                            seasons of profound challenge. Through illness, loss, and deeply personal trials, I learned
+                            to release control and trust God beyond my understanding.
                         </p>
                         <p>
-                            These transformative periods, though difficult, revealed that healing is often God's unseen work, restoring what feels broken and renewing what seems lost. Reflection became prayer, and journaling became worship.
-                        </p>
-                        <p>
-                            I write to share the restoring power of Yeshua's love, offering encouragement that healing is possible, restoration is real, and God is at work, even in the waiting. My words aim to remind you that your current season is not the end of your story.
+                            These transformative periods, though difficult, revealed that healing is often God's unseen
+                            work, restoring what feels broken and renewing what seems lost. Reflection became prayer,
+                            and journaling became worship.
                         </p>
                     </div>
 
-                    <div class="flex items-center gap-4 text-gold">
-                        <i data-lucide="quote" class="w-8 h-8"></i>
-                        <p class="font-serif italic text-deep-blue text-lg">"Honoring Scripture while speaking to the lived experiences of the heart."</p>
+                    <!-- Personal Testimony -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-cream-dark mb-8">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="quote" class="w-8 h-8 text-gold shrink-0 mt-1"></i>
+                            <div>
+                                <p class="font-serif italic text-deep-blue text-lg mb-2">"I write to share the restoring
+                                    power of Yeshua's love."</p>
+                                <p class="text-soft-gray text-sm leading-relaxed">
+                                    Healing is possible, restoration is real, and God is at work, even in the waiting.
+                                    My words aim to remind you that your current season is not the end of your story.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Journey of Faith -->
+                    <div class="flex items-center gap-3 text-gold">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                        <p class="font-serif italic text-deep-blue">Honoring Scripture while speaking to the lived
+                            experiences of the heart.</p>
                     </div>
                 </div>
             </div>
@@ -346,30 +459,47 @@
                 <span class="text-gold text-sm tracking-widest uppercase mb-2 block">New Here?</span>
                 <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6">Where to Begin</h2>
                 <p class="text-soft-gray max-w-2xl mx-auto leading-relaxed">
-                    If you are new to this community, I am so glad you are here. This space is dedicated to the quiet, steady journey of faith.
+                    If you are new to this community, I am so glad you are here. This space is dedicated to the quiet,
+                    steady journey of faith.
                 </p>
             </div>
-            
+
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg">1</div>
+                    <div
+                        class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg">
+                        1</div>
                     <h3 class="font-serif text-2xl text-deep-blue mb-4">Read the Trilogy</h3>
-                    <p class="text-soft-gray text-sm leading-relaxed mb-6">Start with Book 1: Faith that Stands. Follow the spiritual pilgrimage from the first stirring of the soul to the arrival at divine promise.</p>
-                    <a href="#trilogy" class="text-gold text-sm font-medium hover:underline inline-flex items-center gap-2">Explore the Books <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    <p class="text-soft-gray text-sm leading-relaxed mb-6">Start with Book 1: The 23rd Promise —
+                        releasing March 23, 2026. Follow the journey from the valley, to vigilance, to standing
+                        established without fear.</p>
+                    <a href="#trilogy"
+                        class="text-gold text-sm font-medium hover:underline inline-flex items-center gap-2">Explore the
+                        Books <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
-                
+
                 <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg">2</div>
+                    <div
+                        class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg">
+                        2</div>
                     <h3 class="font-serif text-2xl text-deep-blue mb-4">Dive into the Blog</h3>
-                    <p class="text-soft-gray text-sm leading-relaxed mb-6">Explore reflections on faith, waiting, and obedience. Join us in finding the sacred in the ordinary days.</p>
-                    <a href="blog.html" class="text-gold text-sm font-medium hover:underline inline-flex items-center gap-2">Read Reflections <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    <p class="text-soft-gray text-sm leading-relaxed mb-6">Explore reflections on faith, waiting, and
+                        obedience. Join us in finding the sacred in the ordinary days.</p>
+                    <a href="blog.html"
+                        class="text-gold text-sm font-medium hover:underline inline-flex items-center gap-2">Read
+                        Reflections <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
-                
+
                 <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg">3</div>
+                    <div
+                        class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg">
+                        3</div>
                     <h3 class="font-serif text-2xl text-deep-blue mb-4">Join the Community</h3>
-                    <p class="text-soft-gray text-sm leading-relaxed mb-6">Receive devotionals and reflections directly in your inbox, along with exclusive resources for your journey.</p>
-                    <a href="#connect" class="bg-deep-blue text-cream px-8 py-3 rounded-full text-sm hover:bg-gold transition-colors shadow-md">Sign Up for Devotionals</a>
+                    <p class="text-soft-gray text-sm leading-relaxed mb-6">Receive devotionals and reflections directly
+                        in your inbox, along with exclusive resources for your journey.</p>
+                    <a href="#connect"
+                        class="bg-deep-blue text-cream px-8 py-3 rounded-full text-sm hover:bg-gold transition-colors shadow-md">Sign
+                        Up for Devotionals</a>
                 </div>
             </div>
         </div>
@@ -384,13 +514,19 @@
                     <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-8">The heart of my message</h2>
                     <div class="space-y-6 text-soft-gray leading-relaxed text-lg">
                         <p>
-                            My writing is both reflective and declarative, born from seasons of healing and restoration, and speaking with conviction about God's faithfulness. I approach faith not as theory, but as testimony refined through endurance.
+                            My writing is both reflective and declarative, born from seasons of healing and restoration,
+                            and speaking with conviction about God's faithfulness. I approach faith not as theory, but
+                            as testimony refined through endurance.
                         </p>
                         <p>
-                            I want readers to experience that God’s promises are living, active, and trustworthy. While I invite personal examination, I also boldly declare that restoration is real, waiting is purposeful, and Yeshua remains faithful in every season.
+                            I want readers to experience that God’s promises are living, active, and trustworthy. While
+                            I invite personal examination, I also boldly declare that restoration is real, waiting is
+                            purposeful, and Yeshua remains faithful in every season.
                         </p>
                         <p>
-                            My perspective offers a reminder that faith is not passive; it calls us to trust, surrender, and stand firmly in God’s Word. My hope is to not only comfort but strengthen you, encouraging belief in the God who restores and fulfills every promise.
+                            My perspective offers a reminder that faith is not passive; it calls us to trust, surrender,
+                            and stand firmly in God’s Word. My hope is to not only comfort but strengthen you,
+                            encouraging belief in the God who restores and fulfills every promise.
                         </p>
                     </div>
                 </div>
@@ -398,7 +534,8 @@
                     <div class="aspect-square bg-cream-dark rounded-full flex items-center justify-center p-12">
                         <div class="text-center">
                             <i data-lucide="shield-check" class="w-16 h-16 text-gold mx-auto mb-6"></i>
-                            <p class="font-serif italic text-2xl text-deep-blue">"Restoration is real, waiting is purposeful, and Yeshua remains faithful."</p>
+                            <p class="font-serif italic text-2xl text-deep-blue">"Restoration is real, waiting is
+                                purposeful, and Yeshua remains faithful."</p>
                         </div>
                     </div>
                     <!-- Decorative dots -->
@@ -425,46 +562,58 @@
         </div>
     </section>
 
-    <!-- The Trilogy -->
+    <!-- The Promise Trilogy -->
     <section id="trilogy" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-gold text-sm tracking-widest uppercase mb-2 block">The Collection</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6">The Sacred Journey Trilogy</h2>
+                <span class="text-gold text-sm tracking-widest uppercase mb-2 block">The Trilogy Journey</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6">The Promise Trilogy</h2>
                 <p class="text-soft-gray max-w-2xl mx-auto">
-                    Three books. One transformative path. A story for every soul seeking meaning.
+                    Three books. One journey — from the valley, to vigilance, to standing established without fear.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-12">
-                <!-- Book 1 -->
+                <!-- Book 1 — The 23rd Promise -->
                 <div class="group flex flex-col h-full">
                     <div class="relative mb-8 overflow-hidden rounded-xl aspect-[2/3] shadow-2xl book-3d">
                         <div class="book-spine">
-                            <span class="spine-text font-serif">Faith that Stands • Leigh Lusignan</span>
+                            <span class="spine-text font-serif">The 23rd Promise • Leigh Lusignan</span>
                         </div>
-                        <img src="faith.jpg" alt="Faith that Stands: Not Assumed, But Formed." class="w-full h-full object-cover transform transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-gold text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full font-semibold">Available Now</div>
+                        <img src="images/23rd.jpg" alt="The 23rd Promise"
+                            class="w-full h-full object-cover transform transition-transform duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-gold text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full font-semibold">
+                            Available March 23, 2026</div>
                     </div>
                     <div class="text-center flex-grow">
-                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">The Foundation</span>
-                        <h3 class="font-serif text-3xl text-deep-blue mb-4 leading-tight">Faith that Stands: Not Assumed, But Formed.</h3>
+                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Book One</span>
+                        <h3 class="font-serif text-3xl text-deep-blue mb-3 leading-tight">The 23rd Promise</h3>
+                        <p class="font-serif italic text-warm-taupe mb-4">"The valley was not the end of me."</p>
                         <p class="text-soft-gray text-sm leading-relaxed mb-8">
-                            In my writing, you'll discover a foundational truth: faith is not a decorative accessory, but a vital, active force. It’s lived through challenges, formed in quiet reflection, and guarded with intention. I write to empower you to cultivate a spirituality that is deeply rooted, resilient, and unwavering, knowing that what God restores in you can and will endure.
+                            Unlike books that offer quick relief, this work doesn't rush the valley; it lingers there.
+                            You won't just read about Psalm 23—you'll wrestle with it, exploring what restoration
+                            actually feels like when it begins, not just when it's complete. This is not just
+                            devotional; it is profound formation for your soul.
                         </p>
-                        
-                        <!-- Purchase Options -->
+
+                        <!-- Pre-order / Shop Options -->
                         <div class="space-y-4">
                             <div class="flex flex-wrap justify-center gap-2 mb-6">
-                                <span class="px-3 py-1 rounded-full bg-cream-dark/50 text-deep-blue text-[10px] font-medium tracking-wider border border-cream-dark">EBOOK</span>
-                                <span class="px-3 py-1 rounded-full bg-cream-dark/50 text-deep-blue text-[10px] font-medium tracking-wider border border-cream-dark">PAPERBACK</span>
-                                <span class="px-3 py-1 rounded-full bg-cream-dark/50 text-deep-blue text-[10px] font-medium tracking-wider border border-cream-dark">HARDCOVER</span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-cream-dark/50 text-deep-blue text-[10px] font-medium tracking-wider border border-cream-dark">EBOOK</span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-cream-dark/50 text-deep-blue text-[10px] font-medium tracking-wider border border-cream-dark">PAPERBACK</span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-cream-dark/50 text-deep-blue text-[10px] font-medium tracking-wider border border-cream-dark">HARDCOVER</span>
                             </div>
                             <div class="grid grid-cols-2 gap-3">
-                                <a href="shop.html" class="bg-deep-blue text-cream py-3 rounded-lg text-xs font-medium hover:bg-gold transition-colors flex items-center justify-center gap-2">
+                                <a href="shop.html"
+                                    class="bg-deep-blue text-cream py-3 rounded-lg text-xs font-medium hover:bg-gold transition-colors flex items-center justify-center gap-2">
                                     <i data-lucide="shopping-cart" class="w-4 h-4"></i> Shop Now
                                 </a>
-                                <a href="#" class="border border-deep-blue/20 text-deep-blue py-3 rounded-lg text-xs font-medium hover:border-gold hover:text-gold transition-all flex items-center justify-center gap-2">
+                                <a href="#"
+                                    class="border border-deep-blue/20 text-deep-blue py-3 rounded-lg text-xs font-medium hover:border-gold hover:text-gold transition-all flex items-center justify-center gap-2">
                                     <i data-lucide="external-link" class="w-4 h-4"></i> Amazon
                                 </a>
                             </div>
@@ -472,20 +621,26 @@
                     </div>
                 </div>
 
-                <!-- Book 2 -->
+                <!-- Book 2 — The Quiet Watch -->
                 <div class="group flex flex-col h-full">
                     <div class="relative mb-8 overflow-hidden rounded-xl aspect-[2/3] shadow-2xl book-3d">
                         <div class="book-spine">
-                            <span class="spine-text font-serif">Deeper Strength • Leigh Lusignan</span>
+                            <span class="spine-text font-serif">The Quiet Watch • Leigh Lusignan</span>
                         </div>
-                        <img src="woman.jpg" alt="For the Woman who Seeks a Deeper Strength." class="w-full h-full object-cover transform transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-sage text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full font-semibold">Coming Soon</div>
+                        <img src="images/woman.jpg" alt="The Quiet Watch"
+                            class="w-full h-full object-cover transform transition-transform duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-sage text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full font-semibold">
+                            Coming September 2026</div>
                     </div>
                     <div class="text-center flex-grow">
-                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">The Refinement</span>
-                        <h3 class="font-serif text-3xl text-deep-blue mb-4 leading-tight">For the Woman who Seeks a Deeper Strength.</h3>
+                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Book Two</span>
+                        <h3 class="font-serif text-3xl text-deep-blue mb-3 leading-tight">The Quiet Watch</h3>
+                        <p class="font-serif italic text-warm-taupe mb-4">"Guard what was restored."</p>
                         <p class="text-soft-gray text-sm leading-relaxed mb-8">
-                            My books are for you if you've endured loss, illness, betrayal, or long seasons of waiting. They are for the woman who has been healed but is learning how to guard that healing, who feels spiritually alert and doesn’t want to drift back into old patterns. If you desire a faith that is lived, not merely decorative, and are done with fragile spirituality, you will find comfort, insight, and encouragement within these pages.
+                            For the woman who has been healed but is learning how to guard that healing — who feels
+                            spiritually alert and doesn't want to drift back into old patterns. A call to stand watch
+                            over what God has renewed in you.
                         </p>
                         <div class="pt-4 border-t border-cream-dark">
                             <p class="text-xs text-soft-gray italic">Subscribe for release updates</p>
@@ -493,23 +648,30 @@
                     </div>
                 </div>
 
-                <!-- Book 3 -->
+                <!-- Book 3 — I Stand Without Fear -->
                 <div class="group flex flex-col h-full">
                     <div class="relative mb-8 overflow-hidden rounded-xl aspect-[2/3] shadow-2xl book-3d">
                         <div class="book-spine">
-                            <span class="spine-text font-serif">The 23rd Promise • Leigh Lusignan</span>
+                            <span class="spine-text font-serif">I Stand Without Fear • Leigh Lusignan</span>
                         </div>
-                        <img src="23rd.jpg" alt="The 23rd Promise: Enduring the Valley, Finding Formation." class="w-full h-full object-cover transform transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-deep-blue/40 text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full font-semibold">In Progress</div>
+                        <img src="images/faith.jpg" alt="I Stand Without Fear"
+                            class="w-full h-full object-cover transform transition-transform duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-deep-blue/40 text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full font-semibold">
+                            Coming 2027</div>
                     </div>
                     <div class="text-center flex-grow">
-                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">The Arrival</span>
-                        <h3 class="font-serif text-3xl text-deep-blue mb-4 leading-tight">The 23rd Promise: Enduring the Valley, Finding Formation.</h3>
+                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Book Three</span>
+                        <h3 class="font-serif text-3xl text-deep-blue mb-3 leading-tight">I Stand Without Fear</h3>
+                        <p class="font-serif italic text-warm-taupe mb-4">"What is established is no longer governed by
+                            fear."</p>
                         <p class="text-soft-gray text-sm leading-relaxed mb-8">
-                            Unlike books that offer quick relief, this work doesn’t rush the valley; it lingers there. You won't just read about Psalm 23—you'll wrestle with it, exploring what restoration actually feels like when it begins, not just when it’s complete. It stands out because it offers honest endurance, deeply personal yet anchored in Scripture in a way that feels lived, not merely quoted. This is not just devotional; it is profound formation for your soul.
+                            Faith is not a decorative accessory, but a vital, active force. It's lived through
+                            challenges, formed in quiet reflection, and guarded with intention. What God restores in you
+                            can and will endure — and you can stand in it without fear.
                         </p>
                         <div class="pt-4 border-t border-cream-dark">
-                            <p class="text-xs text-soft-gray italic">Join the journey today</p>
+                            <p class="text-xs text-soft-gray italic">Subscribe for release updates</p>
                         </div>
                     </div>
                 </div>
@@ -527,12 +689,12 @@
                 <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
             </svg>
         </div>
-        
+
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div class="relative inline-block">
                 <span class="quote-mark text-cream">"</span>
                 <p class="font-serif text-2xl md:text-3xl lg:text-4xl italic leading-relaxed mb-8">
-                    Every story is a prayer woven with words, each character a soul seeking the light 
+                    Every story is a prayer woven with words, each character a soul seeking the light
                     that has been within them all along.
                 </p>
             </div>
@@ -566,10 +728,12 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
                     <p class="text-soft-gray text-sm italic leading-relaxed mb-6">
-                        "The Awakening touched a part of my soul I didn't know was asleep. It's not just a story; it's an invitation to see God in everything."
+                        "The Awakening touched a part of my soul I didn't know was asleep. It's not just a story; it's
+                        an invitation to see God in everything."
                     </p>
                     <div class="flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah M." class="w-10 h-10 rounded-full object-cover border border-gold/20">
+                        <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah M."
+                            class="w-10 h-10 rounded-full object-cover border border-gold/20">
                         <div>
                             <p class="text-deep-blue text-xs font-bold uppercase tracking-wider">Sarah M.</p>
                             <p class="text-[10px] text-soft-gray">Verified Reader</p>
@@ -587,10 +751,12 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
                     <p class="text-soft-gray text-sm italic leading-relaxed mb-6">
-                        "I've read many Christian books, but Leigh's writing has a depth and honesty that is rare. It feels like she's walking right beside you."
+                        "I've read many Christian books, but Leigh's writing has a depth and honesty that is rare. It
+                        feels like she's walking right beside you."
                     </p>
                     <div class="flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/150?u=david" alt="David R." class="w-10 h-10 rounded-full object-cover border border-gold/20">
+                        <img src="https://i.pravatar.cc/150?u=david" alt="David R."
+                            class="w-10 h-10 rounded-full object-cover border border-gold/20">
                         <div>
                             <p class="text-deep-blue text-xs font-bold uppercase tracking-wider">David R.</p>
                             <p class="text-[10px] text-soft-gray">Verified Reader</p>
@@ -608,10 +774,12 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
                     <p class="text-soft-gray text-sm italic leading-relaxed mb-6">
-                        "Beautifully written and deeply moving. This trilogy is exactly what my heart needed in this season of waiting."
+                        "Beautifully written and deeply moving. This trilogy is exactly what my heart needed in this
+                        season of waiting."
                     </p>
                     <div class="flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/150?u=maria" alt="Maria G." class="w-10 h-10 rounded-full object-cover border border-gold/20">
+                        <img src="https://i.pravatar.cc/150?u=maria" alt="Maria G."
+                            class="w-10 h-10 rounded-full object-cover border border-gold/20">
                         <div>
                             <p class="text-deep-blue text-xs font-bold uppercase tracking-wider">Maria G.</p>
                             <p class="text-[10px] text-soft-gray">Verified Reader</p>
@@ -625,9 +793,11 @@
     <!-- Homepage Conversion Section -->
     <section class="py-24 bg-cream text-center">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-8">Join readers walking this journey of faith.</h2>
+            <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-8">Join readers walking this journey of faith.
+            </h2>
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="#connect" class="group bg-gold text-white px-10 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-deep-blue transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-gold/20">
+                <a href="#connect"
+                    class="group bg-gold text-white px-10 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-deep-blue transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-gold/20">
                     Receive Devotionals
                     <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                 </a>
@@ -641,51 +811,58 @@
             <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
                 <i data-lucide="users" class="w-8 h-8 text-gold"></i>
             </div>
-            
+
             <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6">Join our community of faith</h2>
             <p class="text-soft-gray mb-12 max-w-2xl mx-auto leading-relaxed">
-                Beyond my books, I aim to cultivate a vibrant community of believers, strengthened in their faith and spiritually alert in their walk with Christ. My desire is to build more than a readership; I long to see hearts equipped, grounded in truth, and confident in God’s promises.
+                Beyond my books, I aim to cultivate a vibrant community of believers, strengthened in their faith and
+                spiritually alert in their walk with Christ. My desire is to build more than a readership; I long to see
+                hearts equipped, grounded in truth, and confident in God’s promises.
             </p>
 
             <!-- Offer Cards -->
             <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-cream-dark flex flex-col items-center group hover:border-gold transition-colors">
-                    <div class="w-10 h-10 bg-gold/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-gold/10">
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-cream-dark flex flex-col items-center group hover:border-gold transition-colors">
+                    <div
+                        class="w-10 h-10 bg-gold/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-gold/10">
                         <i data-lucide="file-text" class="w-5 h-5 text-gold"></i>
                     </div>
                     <h3 class="font-serif text-lg text-deep-blue mb-2">Equipped Hearts</h3>
-                    <p class="text-xs text-soft-gray text-center leading-relaxed">Grounded in truth and confident in God’s promises.</p>
+                    <p class="text-xs text-soft-gray text-center leading-relaxed">Grounded in truth and confident in
+                        God’s promises.</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-cream-dark flex flex-col items-center group hover:border-gold transition-colors">
-                    <div class="w-10 h-10 bg-sage/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-sage/20">
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-cream-dark flex flex-col items-center group hover:border-gold transition-colors">
+                    <div
+                        class="w-10 h-10 bg-sage/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-sage/20">
                         <i data-lucide="book-open" class="w-5 h-5 text-warm-taupe"></i>
                     </div>
                     <h3 class="font-serif text-lg text-deep-blue mb-2">Spiritual Awareness</h3>
-                    <p class="text-xs text-soft-gray text-center leading-relaxed">Sharpen your faith and deepen your walk with Christ.</p>
+                    <p class="text-xs text-soft-gray text-center leading-relaxed">Sharpen your faith and deepen your
+                        walk with Christ.</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-cream-dark flex flex-col items-center group hover:border-gold transition-colors">
-                    <div class="w-10 h-10 bg-deep-blue/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-deep-blue/10">
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-cream-dark flex flex-col items-center group hover:border-gold transition-colors">
+                    <div
+                        class="w-10 h-10 bg-deep-blue/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-deep-blue/10">
                         <i data-lucide="calendar" class="w-5 h-5 text-deep-blue"></i>
                     </div>
                     <h3 class="font-serif text-lg text-deep-blue mb-2">Restoration Fellowship</h3>
-                    <p class="text-xs text-soft-gray text-center leading-relaxed">A community unshakeable by circumstance, rooted in hope.</p>
+                    <p class="text-xs text-soft-gray text-center leading-relaxed">A community unshakeable by
+                        circumstance, rooted in hope.</p>
                 </div>
             </div>
-            
-            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto bg-white p-2 rounded-full shadow-lg border border-cream-dark">
-                <input 
-                    type="email" 
-                    placeholder="Your email address" 
-                    class="flex-1 px-8 py-3 rounded-full border-none focus:ring-0 text-deep-blue placeholder:text-soft-gray/60"
-                >
-                <button 
-                    type="submit" 
-                    class="bg-deep-blue text-cream px-10 py-3 rounded-full hover:bg-gold transition-all duration-300 font-medium tracking-wide shadow-md"
-                >
+
+            <form
+                class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto bg-white p-2 rounded-full shadow-lg border border-cream-dark">
+                <input type="email" placeholder="Your email address"
+                    class="flex-1 px-8 py-3 rounded-full border-none focus:ring-0 text-deep-blue placeholder:text-soft-gray/60">
+                <button type="submit"
+                    class="bg-deep-blue text-cream px-10 py-3 rounded-full hover:bg-gold transition-all duration-300 font-medium tracking-wide shadow-md">
                     Subscribe
                 </button>
             </form>
-            
+
             <p class="text-xs text-soft-gray/60 mt-8 uppercase tracking-widest">Join the journey of promise today.</p>
         </div>
     </section>
@@ -697,45 +874,58 @@
                 <div class="md:col-span-2">
                     <span class="font-serif text-2xl font-semibold text-deep-blue">Leigh Lusignan</span>
                     <p class="text-soft-gray mt-4 text-sm max-w-sm leading-relaxed">
-                        Writing stories that bridge the sacred and the everyday, inviting readers into transformative encounters with the Divine.
+                        Writing stories that bridge the sacred and the everyday, inviting readers into transformative
+                        encounters with the Divine.
                     </p>
+                    <!-- Social Media Icons -->
+                    <div class="flex items-center gap-4 mt-6">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-5 h-5"></i></a>
+                    </div>
                     <!-- Email Signup in Footer -->
                     <div class="mt-8">
-                        <h4 class="text-deep-blue font-medium mb-4 text-sm tracking-wider uppercase">Receive Devotionals</h4>
+                        <h4 class="text-deep-blue font-medium mb-4 text-sm tracking-wider uppercase">Receive Devotionals
+                        </h4>
                         <form class="flex flex-col sm:flex-row gap-2 max-w-md">
-                            <input 
-                                type="email" 
-                                placeholder="Your email address" 
-                                class="flex-1 px-4 py-2 text-sm rounded-full border border-cream-dark bg-white focus:outline-none focus:border-gold transition-all"
-                            >
-                            <button class="bg-deep-blue text-cream px-6 py-2 text-sm rounded-full hover:bg-gold transition-colors duration-300">
-                                Join
-                            </button>
+                            <input type="email" placeholder="Your email address"
+                                class="flex-1 px-4 py-2 text-sm rounded-full border border-cream-dark bg-white focus:outline-none focus:border-gold transition-all">
+                            <button
+                                class="bg-deep-blue text-cream px-6 py-2 text-sm rounded-full hover:bg-gold transition-colors duration-300">Join</button>
                         </form>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Explore</h4>
                     <ul class="space-y-4 text-sm text-soft-gray">
                         <li><a href="#about" class="hover:text-gold transition-colors">About Leigh</a></li>
-                        <li><a href="#trilogy" class="hover:text-gold transition-colors">The Trilogy</a></li>
-                        <li><a href="blog.html" class="hover:text-gold transition-colors">Blog</a></li>
-                        <li><a href="#start" class="hover:text-gold transition-colors">Where to Begin</a></li>
+                        <li><a href="shop.html" class="hover:text-gold transition-colors">Books</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition-colors">Devotionals</a></li>
+                        <li><a href="podcast.html" class="hover:text-gold transition-colors">Podcast & Media</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Connect</h4>
                     <ul class="space-y-4 text-sm text-soft-gray">
                         <li><a href="#connect" class="hover:text-gold transition-colors">Newsletter</a></li>
-                        <li><a href="mailto:contact@leighlusignanauthor.com" class="hover:text-gold transition-colors">Contact</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                        <li><a href="mailto:Contact@authorleighlusignan.com"
+                                class="hover:text-gold transition-colors">Contact@authorleighlusignan.com</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="border-t border-cream-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-soft-gray text-sm">&copy; 2024 Leigh Lusignan. All rights reserved. | Built by <a href="https://thefreewebsitewizards.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnTMwq40-EQbxnE-a9JNBFc3bELG175Ki53w1ygF0MVG3v3GHph2YNfHMymSg_aem_SG2WjIt4BnMf0FzCcbIDtg" target="_blank" class="hover:text-gold transition-colors">The Free Website Wizards</a></p>
+                <p class="text-soft-gray text-sm">&copy; 2026 Leigh Lusignan. All rights reserved. | Built by <a
+                        href="https://thefreewebsitewizards.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnTMwq40-EQbxnE-a9JNBFc3bELG175Ki53w1ygF0MVG3v3GHph2YNfHMymSg_aem_SG2WjIt4BnMf0FzCcbIDtg"
+                        target="_blank" class="hover:text-gold transition-colors">The Free Website Wizards</a></p>
             </div>
         </div>
     </footer>
@@ -757,7 +947,7 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
@@ -816,19 +1006,20 @@
                 `;
                 document.body.appendChild(alert);
                 lucide.createIcons();
-                
+
                 setTimeout(() => {
                     alert.classList.remove('translate-x-full');
                 }, 100);
-                
+
                 setTimeout(() => {
                     alert.classList.add('translate-x-full');
                     setTimeout(() => alert.remove(), 300);
                 }, 3000);
-                
+
                 form.reset();
             }
         });
     </script>
 </body>
+
 </html>

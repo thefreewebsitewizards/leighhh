@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Leigh Lusignan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F9F7F4',
+                        'cream-dark': '#F0EBE3',
+                        gold: '#D4AF37',
+                        'gold-light': '#E8D595',
+                        'deep-blue': '#2C3E50',
+                        'warm-taupe': '#8B7355',
+                        sage: '#B8C5B8',
+                        'soft-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F4;
+            color: #2C3E50;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(249, 247, 244, 0.9);
+        }
+
+        .toast {
+            animation: slideIn 0.3s ease-out, fadeOut 0.3s ease-in 2.7s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-gold/30 selection:text-deep-blue">
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-md w-full">
+            <div class="text-center mb-10">
+                <h1 class="font-serif text-4xl text-deep-blue mb-2">Admin Dashboard</h1>
+                <p class="text-soft-gray text-sm">Leigh Lusignan — Devotionals Management</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg border border-cream-dark p-8">
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <label class="text-sm text-deep-blue font-medium mb-2 block">Email</label>
+                        <input type="email" id="login-email" required
+                            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm"
+                            placeholder="leighblogs@admin.com">
+                    </div>
+                    <div>
+                        <label class="text-sm text-deep-blue font-medium mb-2 block">Password</label>
+                        <input type="password" id="login-password" required
+                            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm"
+                            placeholder="••••••••">
+                    </div>
+                    <div id="login-error" class="text-red-500 text-sm hidden"></div>
+                    <button type="submit" id="login-btn"
+                        class="w-full bg-deep-blue text-cream py-3 rounded-xl hover:bg-gold transition-colors duration-300 font-medium text-sm tracking-wider">
+                        Sign In
+                    </button>
+                </form>
+                <div class="mt-6 pt-6 border-t border-cream-dark">
+                    <p class="text-xs text-soft-gray text-center mb-3">First time? Create your account then bootstrap
+                        admin:</p>
+                    <button id="signup-btn"
+                        class="w-full border border-deep-blue text-deep-blue py-2.5 rounded-xl hover:bg-deep-blue hover:text-cream transition-colors text-sm mb-2">
+                        Create Account & Bootstrap Admin
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="hidden min-h-screen">
+        <!-- Admin Nav -->
+        <nav class="fixed w-full z-50 nav-blur shadow-sm py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="font-serif text-xl font-semibold text-deep-blue">Leigh Lusignan</a>
+                    <span
+                        class="bg-gold/20 text-gold text-xs px-3 py-1 rounded-full font-medium tracking-wider">ADMIN</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span id="admin-email-display" class="text-soft-gray text-sm hidden md:block"></span>
+                    <a href="blog.html" class="text-sm text-soft-gray hover:text-gold transition-colors">View Blog</a>
+                    <button id="logout-btn"
+                        class="text-sm text-red-500 hover:text-red-600 transition-colors font-medium">
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="pt-24 pb-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white rounded-2xl shadow-sm border border-cream-dark p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center">
+                            <i data-lucide="file-text" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <span class="text-soft-gray text-sm">Total Posts</span>
+                    </div>
+                    <p id="stat-total" class="text-3xl font-serif text-deep-blue font-semibold">0</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-cream-dark p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                        </div>
+                        <span class="text-soft-gray text-sm">Published</span>
+                    </div>
+                    <p id="stat-published" class="text-3xl font-serif text-deep-blue font-semibold">0</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-cream-dark p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center">
+                            <i data-lucide="edit-3" class="w-5 h-5 text-orange-500"></i>
+                        </div>
+                        <span class="text-soft-gray text-sm">Drafts</span>
+                    </div>
+                    <p id="stat-drafts" class="text-3xl font-serif text-deep-blue font-semibold">0</p>
+                </div>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                <h2 class="font-serif text-3xl text-deep-blue">Devotional Posts</h2>
+                <button id="new-post-btn"
+                    class="bg-deep-blue text-cream px-6 py-3 rounded-xl hover:bg-gold transition-colors duration-300 text-sm font-medium inline-flex items-center gap-2">
+                    <i data-lucide="plus" class="w-4 h-4"></i> New Devotional
+                </button>
+            </div>
+
+            <!-- Post List -->
+            <div id="posts-list" class="space-y-4">
+                <div class="text-center py-16 text-soft-gray">
+                    <i data-lucide="loader" class="w-8 h-8 mx-auto mb-4 animate-spin"></i>
+                    <p>Loading posts...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Editor Modal -->
+    <div id="post-modal"
+        class="hidden fixed inset-0 z-60 bg-black/50 flex items-start justify-center pt-20 pb-10 px-4 overflow-y-auto"
+        style="z-index: 100;">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl border border-cream-dark">
+            <div class="flex justify-between items-center p-6 border-b border-cream-dark">
+                <h3 id="modal-title" class="font-serif text-2xl text-deep-blue">New Devotional</h3>
+                <button id="close-modal-btn" class="text-soft-gray hover:text-deep-blue transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <form id="post-form" class="p-6 space-y-6">
+                <input type="hidden" id="edit-post-id" value="">
+                <div>
+                    <label class="text-sm text-deep-blue font-medium mb-2 block">Title *</label>
+                    <input type="text" id="post-title" required
+                        class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm"
+                        placeholder="e.g. Walking Through the Valley">
+                </div>
+                <div>
+                    <label class="text-sm text-deep-blue font-medium mb-2 block">Category</label>
+                    <select id="post-category"
+                        class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm">
+                        <option value="Devotional">Devotional</option>
+                        <option value="Testimony">Testimony</option>
+                        <option value="Reflection">Reflection</option>
+                        <option value="Faith">Faith</option>
+                        <option value="Healing">Healing</option>
+                        <option value="Restoration">Restoration</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-sm text-deep-blue font-medium mb-2 block">Excerpt</label>
+                    <textarea id="post-excerpt" rows="2"
+                        class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm resize-none"
+                        placeholder="Brief summary shown in blog listing..."></textarea>
+                </div>
+                <div>
+                    <label class="text-sm text-deep-blue font-medium mb-2 block">Image URL</label>
+                    <input type="url" id="post-image"
+                        class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm"
+                        placeholder="https://images.unsplash.com/...">
+                    <p class="text-xs text-soft-gray mt-1">Suggested: sunrise, scripture reflection, peaceful landscapes
+                    </p>
+                </div>
+                <div>
+                    <label class="text-sm text-deep-blue font-medium mb-2 block">Content *</label>
+                    <textarea id="post-content" rows="12" required
+                        class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm resize-none leading-relaxed"
+                        placeholder="Write your devotional content here... You can use line breaks for paragraphs."></textarea>
+                </div>
+                <div>
+                    <label class="text-sm text-deep-blue font-medium mb-2 block">Scripture Reference</label>
+                    <input type="text" id="post-scripture"
+                        class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm"
+                        placeholder="e.g. Psalm 23:1-3">
+                </div>
+                <div class="flex items-center gap-3">
+                    <label class="text-sm text-deep-blue font-medium">Status:</label>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="post-status" class="sr-only peer">
+                        <div
+                            class="w-11 h-6 bg-cream-dark rounded-full peer peer-checked:bg-gold peer-focus:ring-2 peer-focus:ring-gold/20 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full">
+                        </div>
+                    </label>
+                    <span id="status-label" class="text-sm text-soft-gray">Draft</span>
+                </div>
+                <div class="flex gap-3 pt-4 border-t border-cream-dark">
+                    <button type="submit" id="save-post-btn"
+                        class="flex-1 bg-deep-blue text-cream py-3 rounded-xl hover:bg-gold transition-colors duration-300 font-medium text-sm">
+                        Save Post
+                    </button>
+                    <button type="button" id="cancel-post-btn"
+                        class="px-6 py-3 rounded-xl border border-cream-dark text-soft-gray hover:text-deep-blue hover:border-deep-blue transition-colors text-sm">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"
+        class="hidden fixed top-6 right-6 z-[200] bg-deep-blue text-cream px-6 py-3 rounded-xl shadow-lg text-sm font-medium toast">
+    </div>
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-functions-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        // ======= DOM Elements =======
+        const loginScreen = document.getElementById('login-screen');
+        const adminDashboard = document.getElementById('admin-dashboard');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const loginEmail = document.getElementById('login-email');
+        const loginPassword = document.getElementById('login-password');
+        const signupBtn = document.getElementById('signup-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const adminEmailDisplay = document.getElementById('admin-email-display');
+        const postsList = document.getElementById('posts-list');
+        const postModal = document.getElementById('post-modal');
+        const postForm = document.getElementById('post-form');
+        const modalTitle = document.getElementById('modal-title');
+        const editPostId = document.getElementById('edit-post-id');
+        const postTitle = document.getElementById('post-title');
+        const postCategory = document.getElementById('post-category');
+        const postExcerpt = document.getElementById('post-excerpt');
+        const postImage = document.getElementById('post-image');
+        const postContent = document.getElementById('post-content');
+        const postScripture = document.getElementById('post-scripture');
+        const postStatus = document.getElementById('post-status');
+        const statusLabel = document.getElementById('status-label');
+        const toast = document.getElementById('toast');
+
+        let currentUnsubscribe = null;
+        let isBootstrapping = false; // Prevents auth listener from interfering during signup
+
+        // ======= Toast =======
+        function showToast(message, isError = false) {
+            toast.textContent = message;
+            toast.className = `fixed top-6 right-6 z-[200] px-6 py-3 rounded-xl shadow-lg text-sm font-medium toast ${isError ? 'bg-red-500 text-white' : 'bg-deep-blue text-cream'}`;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        // ======= Auth State =======
+        auth.onAuthStateChanged(async (user) => {
+            // Skip checks during bootstrap process
+            if (isBootstrapping) return;
+
+            if (user) {
+                try {
+                    // Force token refresh to get latest claims
+                    const tokenResult = await user.getIdTokenResult(true);
+                    if (tokenResult.claims.storeId === STORE_ID && tokenResult.claims.role === 'admin') {
+                        loginScreen.classList.add('hidden');
+                        adminDashboard.classList.remove('hidden');
+                        adminEmailDisplay.textContent = user.email;
+                        loadPosts();
+                    } else {
+                        loginScreen.classList.remove('hidden');
+                        adminDashboard.classList.add('hidden');
+                        showToast('Access denied — admin privileges required', true);
+                        auth.signOut();
+                    }
+                } catch (error) {
+                    console.error('Auth state error:', error);
+                    loginScreen.classList.remove('hidden');
+                    adminDashboard.classList.add('hidden');
+                }
+            } else {
+                loginScreen.classList.remove('hidden');
+                adminDashboard.classList.add('hidden');
+                if (currentUnsubscribe) { currentUnsubscribe(); currentUnsubscribe = null; }
+            }
+        });
+
+        // ======= Login =======
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loginError.classList.add('hidden');
+            const btn = document.getElementById('login-btn');
+            btn.textContent = 'Signing in...';
+            btn.disabled = true;
+
+            try {
+                await auth.signInWithEmailAndPassword(loginEmail.value, loginPassword.value);
+            } catch (error) {
+                loginError.textContent = error.message;
+                loginError.classList.remove('hidden');
+            }
+            btn.textContent = 'Sign In';
+            btn.disabled = false;
+        });
+
+        // ======= Signup + Bootstrap =======
+        signupBtn.addEventListener('click', async () => {
+            const email = loginEmail.value;
+            const password = loginPassword.value;
+
+            if (!email || !password) {
+                loginError.textContent = 'Please enter email and password first.';
+                loginError.classList.remove('hidden');
+                return;
+            }
+
+            if (password.length < 6) {
+                loginError.textContent = 'Password must be at least 6 characters.';
+                loginError.classList.remove('hidden');
+                return;
+            }
+
+            signupBtn.textContent = 'Creating account...';
+            signupBtn.disabled = true;
+            loginError.classList.add('hidden');
+
+            // Set flag to prevent auth listener from interfering
+            isBootstrapping = true;
+
+            try {
+                // Step 1: Create the account (this triggers onAuthStateChanged, but we skip it)
+                await auth.createUserWithEmailAndPassword(email, password);
+
+                signupBtn.textContent = 'Bootstrapping admin...';
+
+                // Step 2: Bootstrap admin claims
+                await callFunction('bootstrapAdminClaims', {});
+
+                signupBtn.textContent = 'Refreshing session...';
+
+                // Step 3: Force token refresh to pick up new claims
+                await auth.currentUser.getIdToken(true);
+
+                // Step 4: Done bootstrapping, let auth listener take over
+                isBootstrapping = false;
+
+                showToast('Admin account created successfully!');
+
+                // Reload to trigger fresh auth state check with new claims
+                window.location.reload();
+            } catch (error) {
+                isBootstrapping = false;
+                loginError.textContent = error.message;
+                loginError.classList.remove('hidden');
+                // If account was created but bootstrap failed, sign out
+                if (auth.currentUser) {
+                    auth.signOut();
+                }
+            }
+            signupBtn.textContent = 'Create Account & Bootstrap Admin';
+            signupBtn.disabled = false;
+        });
+
+        // ======= Logout =======
+        logoutBtn.addEventListener('click', () => auth.signOut());
+
+        // ======= Load Posts =======
+        function loadPosts() {
+            if (currentUnsubscribe) currentUnsubscribe();
+            currentUnsubscribe = getAllPosts((posts) => {
+                // Update stats
+                document.getElementById('stat-total').textContent = posts.length;
+                document.getElementById('stat-published').textContent = posts.filter(p => p.status === 'published').length;
+                document.getElementById('stat-drafts').textContent = posts.filter(p => p.status === 'draft').length;
+
+                if (posts.length === 0) {
+                    postsList.innerHTML = `
+                        <div class="text-center py-16 text-soft-gray">
+                            <i data-lucide="file-plus" class="w-12 h-12 mx-auto mb-4 opacity-40"></i>
+                            <p class="text-lg mb-2">No devotionals yet</p>
+                            <p class="text-sm">Click "New Devotional" to create your first post.</p>
+                        </div>`;
+                    lucide.createIcons();
+                    return;
+                }
+
+                postsList.innerHTML = posts.map(post => `
+                    <div class="bg-white rounded-2xl shadow-sm border border-cream-dark p-6 hover:shadow-md transition-shadow">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="px-3 py-1 rounded-full text-xs font-medium tracking-wider ${post.status === 'published' ? 'bg-green-50 text-green-600' : 'bg-orange-50 text-orange-600'}">
+                                        ${post.status === 'published' ? 'PUBLISHED' : 'DRAFT'}
+                                    </span>
+                                    <span class="px-3 py-1 rounded-full bg-cream-dark text-soft-gray text-xs tracking-wider">${post.category || 'Devotional'}</span>
+                                </div>
+                                <h3 class="font-serif text-xl text-deep-blue mb-1 truncate">${post.title}</h3>
+                                <p class="text-soft-gray text-sm">${post.excerpt || truncateText(post.content || '', 100)}</p>
+                                <p class="text-xs text-soft-gray/60 mt-2">${formatDate(post.createdAt)}</p>
+                            </div>
+                            <div class="flex items-center gap-2 flex-shrink-0">
+                                <button onclick="editPost('${post.id}')" class="p-2 rounded-lg border border-cream-dark hover:border-gold hover:text-gold transition-colors" title="Edit">
+                                    <i data-lucide="edit-2" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="togglePostStatus('${post.id}', '${post.status}')" 
+                                    class="p-2 rounded-lg border border-cream-dark hover:border-gold hover:text-gold transition-colors" 
+                                    title="${post.status === 'published' ? 'Unpublish' : 'Publish'}">
+                                    <i data-lucide="${post.status === 'published' ? 'eye-off' : 'eye'}" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="deletePost('${post.id}', '${post.title.replace(/'/g, "\\'")}')" class="p-2 rounded-lg border border-cream-dark hover:border-red-400 hover:text-red-500 transition-colors" title="Delete">
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                lucide.createIcons();
+            });
+        }
+
+        // ======= Post Status Toggle =======
+        postStatus.addEventListener('change', () => {
+            statusLabel.textContent = postStatus.checked ? 'Published' : 'Draft';
+        });
+
+        // ======= Modal Control =======
+        document.getElementById('new-post-btn').addEventListener('click', () => {
+            modalTitle.textContent = 'New Devotional';
+            editPostId.value = '';
+            postForm.reset();
+            statusLabel.textContent = 'Draft';
+            postModal.classList.remove('hidden');
+        });
+
+        document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+        document.getElementById('cancel-post-btn').addEventListener('click', closeModal);
+        postModal.addEventListener('click', (e) => { if (e.target === postModal) closeModal(); });
+
+        function closeModal() { postModal.classList.add('hidden'); }
+
+        // ======= Save Post =======
+        postForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('save-post-btn');
+            btn.textContent = 'Saving...';
+            btn.disabled = true;
+
+            const postData = {
+                title: postTitle.value,
+                category: postCategory.value,
+                excerpt: postExcerpt.value,
+                imageUrl: postImage.value || 'https://images.unsplash.com/photo-1507502707541-f369a3b18502?q=80&w=1200&auto=format&fit=crop',
+                content: postContent.value,
+                scripture: postScripture.value,
+                status: postStatus.checked ? 'published' : 'draft'
+            };
+
+            try {
+                const existingId = editPostId.value;
+                if (existingId) {
+                    await callFunction('updatePost', { postId: existingId, updates: postData });
+                    showToast('Post updated successfully!');
+                } else {
+                    await callFunction('addPost', { postData });
+                    showToast('Post created successfully!');
+                }
+                closeModal();
+            } catch (error) {
+                showToast('Error saving post: ' + error.message, true);
+            }
+            btn.textContent = 'Save Post';
+            btn.disabled = false;
+        });
+
+        // ======= Edit Post =======
+        async function editPost(postId) {
+            const doc = await db.collection('stores').doc(STORE_ID).collection('posts').doc(postId).get();
+            if (!doc.exists) return showToast('Post not found', true);
+
+            const post = doc.data();
+            modalTitle.textContent = 'Edit Devotional';
+            editPostId.value = postId;
+            postTitle.value = post.title || '';
+            postCategory.value = post.category || 'Devotional';
+            postExcerpt.value = post.excerpt || '';
+            postImage.value = post.imageUrl || '';
+            postContent.value = post.content || '';
+            postScripture.value = post.scripture || '';
+            postStatus.checked = post.status === 'published';
+            statusLabel.textContent = post.status === 'published' ? 'Published' : 'Draft';
+            postModal.classList.remove('hidden');
+        }
+
+        // ======= Toggle Post Status =======
+        async function togglePostStatus(postId, currentStatus) {
+            try {
+                const newStatus = currentStatus === 'published' ? 'draft' : 'published';
+                await callFunction('updatePost', { postId, updates: { status: newStatus } });
+                showToast(`Post ${newStatus === 'published' ? 'published' : 'unpublished'}!`);
+            } catch (error) {
+                showToast('Error updating status: ' + error.message, true);
+            }
+        }
+
+        // ======= Delete Post =======
+        async function deletePost(postId, title) {
+            if (!confirm(`Delete "${title}"? This will also remove all comments on this post.`)) return;
+            try {
+                await callFunction('deletePost', { postId });
+                showToast('Post deleted successfully!');
+            } catch (error) {
+                showToast('Error deleting post: ' + error.message, true);
+            }
+        }
+
+        // Init icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

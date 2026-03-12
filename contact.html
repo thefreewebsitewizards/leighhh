@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Leigh Lusignan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F9F7F4',
+                        'cream-dark': '#F0EBE3',
+                        gold: '#D4AF37',
+                        'gold-light': '#E8D595',
+                        'deep-blue': '#2C3E50',
+                        'warm-taupe': '#8B7355',
+                        sage: '#B8C5B8',
+                        'soft-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F4;
+            color: #2C3E50;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(249, 247, 244, 0.9);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-gold/30 selection:text-deep-blue">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 nav-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex flex-col">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue tracking-wide">Leigh Lusignan</span>
+                    <span class="text-xs text-warm-taupe tracking-widest uppercase mt-0.5">Faith & Inspiration</span>
+                </a>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#about"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">About</a>
+                    <a href="shop.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Books</a>
+                    <a href="blog.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Devotionals</a>
+                    <a href="podcast.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Podcast</a>
+                    <a href="contact.html"
+                        class="text-sm text-gold font-medium tracking-wider border-b border-gold pb-1">Contact</a>
+                    <div class="flex items-center gap-3 ml-2">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-deep-blue">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-cream-dark absolute w-full">
+            <div class="px-4 py-6 space-y-4 flex flex-col items-center">
+                <a href="index.html#about" class="text-sm text-soft-gray hover:text-gold transition-colors">About</a>
+                <a href="shop.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Books</a>
+                <a href="blog.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Devotionals</a>
+                <a href="podcast.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Podcast</a>
+                <a href="contact.html" class="text-sm text-gold font-medium">Contact</a>
+                <div class="flex items-center gap-4 pt-2">
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                            class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="pt-40 pb-16 bg-cream-dark/30 text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <span class="text-gold text-sm tracking-widest uppercase mb-4 block">Get in Touch</span>
+            <h1 class="font-serif text-5xl md:text-6xl text-deep-blue mb-6">Contact Leigh</h1>
+            <p class="text-lg text-soft-gray leading-relaxed">
+                Whether you're a reader, member of the media, or simply want to share your story — I'd love to hear from
+                you.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <!-- Contact Form -->
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-cream-dark">
+                    <h2 class="font-serif text-3xl text-deep-blue mb-2">Send a Message</h2>
+                    <p class="text-soft-gray text-sm mb-8">All fields are required.</p>
+
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name"
+                                class="block text-deep-blue text-sm font-medium mb-2 tracking-wider uppercase">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name"
+                                class="w-full px-5 py-3 rounded-xl border border-cream-dark bg-cream/50 text-deep-blue placeholder:text-soft-gray/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-sm">
+                        </div>
+                        <div>
+                            <label for="email"
+                                class="block text-deep-blue text-sm font-medium mb-2 tracking-wider uppercase">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com"
+                                class="w-full px-5 py-3 rounded-xl border border-cream-dark bg-cream/50 text-deep-blue placeholder:text-soft-gray/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-sm">
+                        </div>
+                        <div>
+                            <label for="message"
+                                class="block text-deep-blue text-sm font-medium mb-2 tracking-wider uppercase">Message</label>
+                            <textarea id="message" name="message" required rows="6"
+                                placeholder="Share your thoughts, feedback, or inquiry..."
+                                class="w-full px-5 py-3 rounded-xl border border-cream-dark bg-cream/50 text-deep-blue placeholder:text-soft-gray/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-sm resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-deep-blue text-cream py-4 rounded-xl text-sm font-medium tracking-widest uppercase hover:bg-gold transition-all duration-300 flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info & Imagery -->
+                <div class="space-y-8">
+                    <!-- Calm imagery placeholder -->
+                    <div
+                        class="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-sage/30 via-cream to-gold/10 flex items-center justify-center">
+                        <div class="text-center p-8">
+                            <i data-lucide="cloud-sun" class="w-16 h-16 text-gold/40 mx-auto mb-4"></i>
+                            <p class="font-serif italic text-2xl text-deep-blue/60">"Be still, and know that I am God."
+                            </p>
+                            <p class="text-warm-taupe text-sm mt-2">— Psalm 46:10</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-cream-dark/30 p-8 rounded-2xl">
+                        <h3 class="font-serif text-xl text-deep-blue mb-4">Other Ways to Reach Me</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="mail" class="w-5 h-5 text-gold"></i>
+                                <a href="mailto:Contact@authorleighlusignan.com"
+                                    class="text-deep-blue hover:text-gold transition-colors text-sm">Contact@authorleighlusignan.com</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="instagram" class="w-5 h-5 text-gold"></i>
+                                <span class="text-soft-gray text-sm">Follow on Instagram</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="facebook" class="w-5 h-5 text-gold"></i>
+                                <span class="text-soft-gray text-sm">Connect on Facebook</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-cream-dark">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="info" class="w-5 h-5 text-gold shrink-0 mt-0.5"></i>
+                            <p class="text-soft-gray text-sm leading-relaxed">
+                                <strong class="text-deep-blue">For media inquiries:</strong> If you'd like to feature
+                                Leigh on your podcast, blog, or publication, please include "Media Inquiry" in your
+                                message subject.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Signup -->
+    <section class="py-20 bg-deep-blue text-cream">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl mb-4">Join the Journey</h2>
+            <p class="text-cream/70 mb-8 leading-relaxed">
+                Subscribe for launch updates, weekly devotionals, and future book announcements.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address"
+                    class="flex-1 px-6 py-3 rounded-full border-none bg-white/10 text-cream placeholder:text-cream/50 focus:ring-2 focus:ring-gold outline-none transition-all">
+                <button
+                    class="bg-gold text-white px-8 py-3 rounded-full hover:bg-gold-light transition-colors font-medium">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cream-dark/50 border-t border-cream-dark py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue">Leigh Lusignan</span>
+                    <p class="text-soft-gray mt-4 text-sm max-w-sm leading-relaxed">
+                        Writing stories that bridge the sacred and the everyday, inviting readers into transformative
+                        encounters with the Divine.
+                    </p>
+                    <div class="flex items-center gap-4 mt-6">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Explore</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#about" class="hover:text-gold transition-colors">About Leigh</a></li>
+                        <li><a href="shop.html" class="hover:text-gold transition-colors">Books</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition-colors">Devotionals</a></li>
+                        <li><a href="podcast.html" class="hover:text-gold transition-colors">Podcast & Media</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Connect</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#connect" class="hover:text-gold transition-colors">Newsletter</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                        <li><a href="mailto:Contact@authorleighlusignan.com"
+                                class="hover:text-gold transition-colors">Contact@authorleighlusignan.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-cream-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-soft-gray text-sm">&copy; 2026 Leigh Lusignan. All rights reserved. | Built by <a
+                        href="https://thefreewebsitewizards.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnTMwq40-EQbxnE-a9JNBFc3bELG175Ki53w1ygF0MVG3v3GHph2YNfHMymSg_aem_SG2WjIt4BnMf0FzCcbIDtg"
+                        target="_blank" class="hover:text-gold transition-colors">The Free Website Wizards</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { navbar.classList.add('shadow-sm'); }
+            else { navbar.classList.remove('shadow-sm'); }
+        });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const alert = document.createElement('div');
+            alert.className = 'fixed top-20 right-4 bg-gold text-white px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50';
+            alert.innerHTML = '<div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i><p class="font-medium">Message sent! Thank you for reaching out.</p></div>';
+            document.body.appendChild(alert);
+            lucide.createIcons();
+            setTimeout(() => { alert.classList.remove('translate-x-full'); }, 100);
+            setTimeout(() => { alert.classList.add('translate-x-full'); setTimeout(() => alert.remove(), 300); }, 3000);
+            e.target.reset();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast & Media | Leigh Lusignan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F9F7F4',
+                        'cream-dark': '#F0EBE3',
+                        gold: '#D4AF37',
+                        'gold-light': '#E8D595',
+                        'deep-blue': '#2C3E50',
+                        'warm-taupe': '#8B7355',
+                        sage: '#B8C5B8',
+                        'soft-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F4;
+            color: #2C3E50;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(249, 247, 244, 0.9);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-gold/30 selection:text-deep-blue">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 nav-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex flex-col">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue tracking-wide">Leigh Lusignan</span>
+                    <span class="text-xs text-warm-taupe tracking-widest uppercase mt-0.5">Faith & Inspiration</span>
+                </a>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#about"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">About</a>
+                    <a href="shop.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Books</a>
+                    <a href="blog.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Devotionals</a>
+                    <a href="podcast.html"
+                        class="text-sm text-gold font-medium tracking-wider border-b border-gold pb-1">Podcast</a>
+                    <a href="contact.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Contact</a>
+                    <div class="flex items-center gap-3 ml-2">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-deep-blue">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-cream-dark absolute w-full">
+            <div class="px-4 py-6 space-y-4 flex flex-col items-center">
+                <a href="index.html#about" class="text-sm text-soft-gray hover:text-gold transition-colors">About</a>
+                <a href="shop.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Books</a>
+                <a href="blog.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Devotionals</a>
+                <a href="podcast.html" class="text-sm text-gold font-medium">Podcast</a>
+                <a href="contact.html" class="text-sm text-soft-gray hover:text-gold transition-colors">Contact</a>
+                <div class="flex items-center gap-4 pt-2">
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                            class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Podcast Hero -->
+    <section class="pt-40 pb-20 bg-cream-dark/30 text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <span class="text-gold text-sm tracking-widest uppercase mb-4 block">Podcast & Media</span>
+            <h1 class="font-serif text-5xl md:text-6xl text-deep-blue mb-6">Coming Soon</h1>
+            <p class="text-lg text-soft-gray leading-relaxed">
+                Media appearances, podcast interviews, and speaking engagements. This page is being prepared — stay
+                tuned for updates.
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Appearance -->
+    <section class="py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-gold text-sm tracking-widest uppercase mb-2 block">Upcoming Appearance</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-deep-blue mb-6">Guest Podcast Feature</h2>
+            </div>
+
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-cream-dark max-w-2xl mx-auto">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center shrink-0">
+                        <i data-lucide="mic" class="w-7 h-7 text-gold"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl text-deep-blue">The Patriettes RAW Podcast</h3>
+                        <p class="text-warm-taupe text-sm">Guest Appearance</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="calendar" class="w-5 h-5 text-gold"></i>
+                        <p class="text-deep-blue font-medium">March 24, 2026</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="link" class="w-5 h-5 text-gold shrink-0 mt-0.5"></i>
+                        <div class="space-y-2 text-sm">
+                            <a href="https://www.afshows.com" target="_blank"
+                                class="block text-deep-blue hover:text-gold transition-colors underline underline-offset-2">www.afshows.com</a>
+                            <a href="https://www.theamericafirstwarehouse.com/the-patriettes-podcast" target="_blank"
+                                class="block text-deep-blue hover:text-gold transition-colors underline underline-offset-2">The
+                                Patriettes Podcast Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-cream-dark/30 p-6 rounded-2xl">
+                    <p class="text-soft-gray text-sm leading-relaxed italic">
+                        Leigh will be sharing her journey of faith, the story behind <strong>The 23rd Promise</strong>,
+                        and what it means to walk through the valley into restoration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stay Updated CTA -->
+    <section class="py-20 bg-deep-blue text-cream">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl mb-6">Stay Updated on Media Appearances</h2>
+            <p class="text-cream/70 mb-8 leading-relaxed">
+                Subscribe to receive updates on podcast interviews, speaking events, and more.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address"
+                    class="flex-1 px-6 py-3 rounded-full border-none bg-white/10 text-cream placeholder:text-cream/50 focus:ring-2 focus:ring-gold outline-none transition-all">
+                <button
+                    class="bg-gold text-white px-8 py-3 rounded-full hover:bg-gold-light transition-colors font-medium">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cream-dark/50 border-t border-cream-dark py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue">Leigh Lusignan</span>
+                    <p class="text-soft-gray mt-4 text-sm max-w-sm leading-relaxed">
+                        Writing stories that bridge the sacred and the everyday, inviting readers into transformative
+                        encounters with the Divine.
+                    </p>
+                    <!-- Social Media Icons -->
+                    <div class="flex items-center gap-4 mt-6">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Explore</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#about" class="hover:text-gold transition-colors">About Leigh</a></li>
+                        <li><a href="shop.html" class="hover:text-gold transition-colors">Books</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition-colors">Devotionals</a></li>
+                        <li><a href="podcast.html" class="hover:text-gold transition-colors">Podcast & Media</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Connect</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#connect" class="hover:text-gold transition-colors">Newsletter</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                        <li><a href="mailto:Contact@authorleighlusignan.com"
+                                class="hover:text-gold transition-colors">Contact@authorleighlusignan.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-cream-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-soft-gray text-sm">&copy; 2026 Leigh Lusignan. All rights reserved. | Built by <a
+                        href="https://thefreewebsitewizards.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnTMwq40-EQbxnE-a9JNBFc3bELG175Ki53w1ygF0MVG3v3GHph2YNfHMymSg_aem_SG2WjIt4BnMf0FzCcbIDtg"
+                        target="_blank" class="hover:text-gold transition-colors">The Free Website Wizards</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { navbar.classList.add('shadow-sm'); }
+            else { navbar.classList.remove('shadow-sm'); }
+        });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    </script>
+</body>
+
+</html>

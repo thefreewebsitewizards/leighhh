@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community & Testimonies | Leigh Lusignan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F9F7F4',
+                        'cream-dark': '#F0EBE3',
+                        gold: '#D4AF37',
+                        'gold-light': '#E8D595',
+                        'deep-blue': '#2C3E50',
+                        'warm-taupe': '#8B7355',
+                        sage: '#B8C5B8',
+                        'soft-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F4;
+            color: #2C3E50;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(249, 247, 244, 0.9);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-gold/30 selection:text-deep-blue">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 nav-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex flex-col">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue tracking-wide">Leigh Lusignan</span>
+                    <span class="text-xs text-warm-taupe tracking-widest uppercase mt-0.5">Faith & Inspiration</span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#about"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">About</a>
+                    <a href="shop.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Books</a>
+                    <a href="blog.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Devotionals</a>
+                    <a href="podcast.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Podcast</a>
+                    <a href="contact.html"
+                        class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Contact</a>
+                    <div class="flex items-center gap-3 ml-2">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-deep-blue">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-36 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600&auto=format&fit=crop"
+                alt="Open fields" class="w-full h-full object-cover opacity-15">
+        </div>
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+            <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="heart" class="w-8 h-8 text-gold"></i>
+            </div>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-deep-blue mb-6 leading-tight">Community &
+                Testimonies</h1>
+            <p class="text-soft-gray text-lg leading-relaxed max-w-xl mx-auto">
+                A sacred space for readers to share testimonies, encourage one another, and reflect together on God's
+                faithfulness.
+            </p>
+        </div>
+    </section>
+
+    <!-- Scripture Quote -->
+    <section class="pb-12">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <blockquote class="border-l-4 border-gold pl-6 text-left">
+                <p class="font-serif text-xl text-warm-taupe italic leading-relaxed">
+                    "Therefore encourage one another and build each other up, just as in fact you are doing."
+                </p>
+                <cite class="text-gold text-sm mt-3 block not-italic tracking-wider">— 1 Thessalonians 5:11</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Share Testimony Form -->
+    <section class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-sm border border-cream-dark p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center">
+                        <i data-lucide="feather" class="w-5 h-5 text-gold"></i>
+                    </div>
+                    <h2 class="font-serif text-2xl text-deep-blue">Share Your Testimony</h2>
+                </div>
+                <p class="text-soft-gray text-sm mb-6 leading-relaxed">
+                    Has God been working in your life? Share your testimony or reflection with our community.
+                    Your story could be the encouragement someone else needs today.
+                </p>
+                <form id="testimony-form" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-sm text-deep-blue font-medium mb-2 block">Your Name *</label>
+                            <input type="text" id="testimony-name" required
+                                class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm"
+                                placeholder="First name or initials">
+                        </div>
+                        <div>
+                            <label class="text-sm text-deep-blue font-medium mb-2 block">Email (Optional)</label>
+                            <input type="email" id="testimony-email"
+                                class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm"
+                                placeholder="For follow-up only — not displayed">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-sm text-deep-blue font-medium mb-2 block">Your Testimony *</label>
+                        <textarea id="testimony-text" required rows="6"
+                            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm resize-none leading-relaxed"
+                            placeholder="Share how God has been at work in your life..."></textarea>
+                    </div>
+                    <div>
+                        <label class="text-sm text-deep-blue font-medium mb-2 block">Scripture Reference
+                            (Optional)</label>
+                        <input type="text" id="testimony-scripture"
+                            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream focus:outline-none focus:border-gold transition-all text-sm"
+                            placeholder="e.g. Psalm 23:4">
+                    </div>
+                    <button type="submit" id="testimony-submit-btn"
+                        class="bg-deep-blue text-cream px-8 py-3 rounded-xl hover:bg-gold transition-colors duration-300 text-sm font-medium inline-flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i> Share Testimony
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Message (hidden by default) -->
+    <div id="success-message" class="hidden max-w-3xl mx-auto px-4 mb-8">
+        <div class="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
+            <p class="text-green-700 text-sm font-medium">✨ Thank you for sharing your testimony! It has been added
+                below.</p>
+        </div>
+    </div>
+
+    <!-- Testimonies List -->
+    <section class="py-12 border-t border-cream-dark">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="font-serif text-2xl text-deep-blue flex items-center gap-3">
+                    <i data-lucide="book-heart" class="w-6 h-6 text-gold"></i>
+                    Community Testimonies
+                    <span id="testimony-count" class="text-sm text-soft-gray font-sans">(0)</span>
+                </h2>
+            </div>
+
+            <div id="testimonies-list" class="space-y-6">
+                <div class="text-center py-12 text-soft-gray">
+                    <i data-lucide="loader" class="w-6 h-6 mx-auto mb-4 animate-spin"></i>
+                    <p class="text-sm">Loading testimonies...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Devotionals CTA -->
+    <section class="py-16 bg-cream-dark/30 border-t border-cream-dark">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h3 class="font-serif text-2xl text-deep-blue mb-4">Read This Week's Devotional</h3>
+            <p class="text-soft-gray text-sm mb-8 leading-relaxed">
+                Explore Leigh's latest devotional writings — reflections on faith, healing, and the spiritual journey.
+            </p>
+            <a href="blog.html"
+                class="bg-deep-blue text-cream px-8 py-3 rounded-full hover:bg-gold transition-colors duration-300 text-sm font-medium inline-flex items-center gap-2">
+                <i data-lucide="book-open" class="w-4 h-4"></i> View Devotionals
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cream-dark/50 border-t border-cream-dark py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl font-semibold text-deep-blue">Leigh Lusignan</span>
+                    <p class="text-soft-gray mt-4 text-sm max-w-sm leading-relaxed">
+                        Writing stories that bridge the sacred and the everyday, inviting readers into transformative
+                        encounters with the Divine.
+                    </p>
+                    <div class="flex items-center gap-4 mt-6">
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="instagram"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="twitter"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="linkedin"
+                                class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Explore</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#about" class="hover:text-gold transition-colors">About Leigh</a></li>
+                        <li><a href="shop.html" class="hover:text-gold transition-colors">Books</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition-colors">Devotionals</a></li>
+                        <li><a href="podcast.html" class="hover:text-gold transition-colors">Podcast & Media</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-deep-blue font-medium mb-6 text-sm tracking-wider uppercase">Connect</h4>
+                    <ul class="space-y-4 text-sm text-soft-gray">
+                        <li><a href="index.html#connect" class="hover:text-gold transition-colors">Newsletter</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                        <li><a href="mailto:Contact@authorleighlusignan.com"
+                                class="hover:text-gold transition-colors">Contact@authorleighlusignan.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-cream-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-soft-gray text-sm">&copy; 2026 Leigh Lusignan. All rights reserved. | Built by <a
+                        href="https://thefreewebsitewizards.com" target="_blank"
+                        class="hover:text-gold transition-colors">The Free Website Wizards</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-functions-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        // Load testimonies
+        getTestimonies((testimonies) => {
+            const list = document.getElementById('testimonies-list');
+            document.getElementById('testimony-count').textContent = `(${testimonies.length})`;
+
+            if (testimonies.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-12 text-soft-gray">
+                        <i data-lucide="heart" class="w-10 h-10 mx-auto mb-4 opacity-30"></i>
+                        <p class="text-sm">No testimonies shared yet. Be the first to encourage the community!</p>
+                    </div>`;
+                lucide.createIcons();
+                return;
+            }
+
+            list.innerHTML = testimonies.map(t => `
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-cream-dark">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-gold font-semibold">${(t.name || 'A')[0].toUpperCase()}</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-2">
+                                <p class="text-deep-blue font-medium text-sm">${t.name || 'Anonymous'}</p>
+                                <span class="text-cream-dark">•</span>
+                                <p class="text-soft-gray text-xs">${formatDate(t.createdAt)}</p>
+                            </div>
+                            <p class="text-soft-gray text-sm leading-relaxed whitespace-pre-line">${t.text}</p>
+                            ${t.scripture ? `<p class="text-gold text-xs mt-3 italic">📖 ${t.scripture}</p>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        });
+
+        // Submit testimony
+        document.getElementById('testimony-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('testimony-submit-btn');
+            btn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Submitting...';
+            btn.disabled = true;
+
+            try {
+                await addComment({
+                    name: document.getElementById('testimony-name').value,
+                    email: document.getElementById('testimony-email').value,
+                    text: document.getElementById('testimony-text').value,
+                    scripture: document.getElementById('testimony-scripture').value,
+                    type: 'testimony',
+                    postId: 'community'
+                });
+                document.getElementById('testimony-form').reset();
+                document.getElementById('success-message').classList.remove('hidden');
+                setTimeout(() => document.getElementById('success-message').classList.add('hidden'), 5000);
+            } catch (error) {
+                alert('Error submitting testimony: ' + error.message);
+            }
+            btn.innerHTML = '<i data-lucide="send" class="w-4 h-4"></i> Share Testimony';
+            btn.disabled = false;
+            lucide.createIcons();
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
