@@ -1,7 +1,7 @@
 // Firebase CDN Configuration for Leigh Lusignan Website
 // Uses Firebase compat SDK loaded via CDN in HTML files
 
-const STORE_ID = "Martin-shakeWagDog";
+const STORE_ID = "leigh-blogs";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCqAoxETs_gyv_HWVa6O1jx0nCFZfRBdQA",

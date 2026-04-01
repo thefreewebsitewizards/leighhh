@@ -100,14 +100,6 @@
                         Sign In
                     </button>
                 </form>
-                <div class="mt-6 pt-6 border-t border-cream-dark">
-                    <p class="text-xs text-soft-gray text-center mb-3">First time? Create your account then bootstrap
-                        admin:</p>
-                    <button id="signup-btn"
-                        class="w-full border border-deep-blue text-deep-blue py-2.5 rounded-xl hover:bg-deep-blue hover:text-cream transition-colors text-sm mb-2">
-                        Create Account & Bootstrap Admin
-                    </button>
-                </div>
             </div>
         </div>
     </div>
@@ -286,7 +278,6 @@
         const loginError = document.getElementById('login-error');
         const loginEmail = document.getElementById('login-email');
         const loginPassword = document.getElementById('login-password');
-        const signupBtn = document.getElementById('signup-btn');
         const logoutBtn = document.getElementById('logout-btn');
         const adminEmailDisplay = document.getElementById('admin-email-display');
         const postsList = document.getElementById('posts-list');
@@ -376,64 +367,6 @@
             }
             btn.textContent = 'Sign In';
             btn.disabled = false;
-        });
-
-        // ======= Signup + Bootstrap =======
-        signupBtn.addEventListener('click', async () => {
-            const email = loginEmail.value;
-            const password = loginPassword.value;
-
-            if (!email || !password) {
-                loginError.textContent = 'Please enter email and password first.';
-                loginError.classList.remove('hidden');
-                return;
-            }
-
-            if (password.length < 6) {
-                loginError.textContent = 'Password must be at least 6 characters.';
-                loginError.classList.remove('hidden');
-                return;
-            }
-
-            signupBtn.textContent = 'Creating account...';
-            signupBtn.disabled = true;
-            loginError.classList.add('hidden');
-
-            // Set flag to prevent auth listener from interfering
-            isBootstrapping = true;
-
-            try {
-                // Step 1: Create the account (this triggers onAuthStateChanged, but we skip it)
-                await auth.createUserWithEmailAndPassword(email, password);
-
-                signupBtn.textContent = 'Bootstrapping admin...';
-
-                // Step 2: Bootstrap admin claims
-                await callFunction('bootstrapAdminClaims', {});
-
-                signupBtn.textContent = 'Refreshing session...';
-
-                // Step 3: Force token refresh to pick up new claims
-                await auth.currentUser.getIdToken(true);
-
-                // Step 4: Done bootstrapping, let auth listener take over
-                isBootstrapping = false;
-
-                showToast('Admin account created successfully!');
-
-                // Reload to trigger fresh auth state check with new claims
-                window.location.reload();
-            } catch (error) {
-                isBootstrapping = false;
-                loginError.textContent = error.message;
-                loginError.classList.remove('hidden');
-                // If account was created but bootstrap failed, sign out
-                if (auth.currentUser) {
-                    auth.signOut();
-                }
-            }
-            signupBtn.textContent = 'Create Account & Bootstrap Admin';
-            signupBtn.disabled = false;
         });
 
         // ======= Logout =======
