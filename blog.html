@@ -67,6 +67,9 @@
                         class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Podcast</a>
                     <a href="contact.html"
                         class="text-sm text-soft-gray hover:text-gold transition-colors duration-300 tracking-wider">Contact</a>
+                    <a href="admin.html" class="text-soft-gray hover:text-gold transition-colors" aria-label="Admin">
+                        <i data-lucide="settings" class="w-4 h-4"></i>
+                    </a>
                     <div class="flex items-center gap-3 ml-2">
                         <a href="https://www.facebook.com/groups/941711591545036" target="_blank" class="text-soft-gray hover:text-gold transition-colors"><i data-lucide="facebook"
                                 class="w-4 h-4"></i></a>
@@ -109,76 +112,6 @@
                     <i data-lucide="loader" class="w-8 h-8 mx-auto mb-4 animate-spin text-gold"></i>
                     <p class="text-soft-gray">Loading devotionals...</p>
                 </div>
-            </div>
-
-            <!-- Static fallback posts (shown when no Firebase posts exist) -->
-            <div id="static-posts" class="hidden grid md:grid-cols-3 gap-12">
-                <article class="group cursor-pointer flex flex-col h-full">
-                    <div
-                        class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                        <img src="images/b1.jpg" alt="Exploring Quiet Stories and Deep Truths"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="flex-grow">
-                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Reflections</span>
-                        <h2 class="font-serif text-2xl text-deep-blue mb-3 group-hover:text-gold transition-colors">
-                            Exploring Quiet Stories and Deep Truths</h2>
-                        <p class="text-soft-gray text-sm leading-relaxed mb-6">
-                            I am most drawn to sharing the quiet stories — the ones that unfold in waiting, in
-                            endurance, and in seasons where God's work is steady but unseen.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-cream-dark mt-auto">
-                        <a href="blog/quiet-stories.html"
-                            class="text-deep-blue text-sm font-medium inline-flex items-center gap-2 group-hover:text-gold transition-colors">
-                            Read Reflection <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </article>
-                <article class="group cursor-pointer flex flex-col h-full">
-                    <div
-                        class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                        <img src="images/b2.jpg" alt="For Hearts Seeking Steady Truth"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="flex-grow">
-                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Testimony</span>
-                        <h2 class="font-serif text-2xl text-deep-blue mb-3 group-hover:text-gold transition-colors">For
-                            Hearts Seeking Steady Truth</h2>
-                        <p class="text-soft-gray text-sm leading-relaxed mb-6">
-                            I write for those who are walking faithfully yet wrestling silently. For those who are
-                            strong in conviction but weary in delay.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-cream-dark mt-auto">
-                        <a href="#"
-                            class="text-deep-blue text-sm font-medium inline-flex items-center gap-2 group-hover:text-gold transition-colors">
-                            Read Reflection <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </article>
-                <article class="group cursor-pointer flex flex-col h-full">
-                    <div
-                        class="aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                        <img src="images/b3.jpg" alt="Learning to Trust Together"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="flex-grow">
-                        <span class="text-gold text-xs tracking-widest uppercase mb-2 block">Spiritual Growth</span>
-                        <h2 class="font-serif text-2xl text-deep-blue mb-3 group-hover:text-gold transition-colors">
-                            Learning to Trust Together</h2>
-                        <p class="text-soft-gray text-sm leading-relaxed mb-6">
-                            I'm not writing from a place of having arrived. I'm writing from the path. We are learning
-                            to trust together — even imperfectly.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-cream-dark mt-auto">
-                        <a href="#"
-                            class="text-deep-blue text-sm font-medium inline-flex items-center gap-2 group-hover:text-gold transition-colors">
-                            Read Reflection <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </article>
             </div>
         </div>
     </section>
@@ -322,13 +255,14 @@
 
         // Load published posts dynamically
         const grid = document.getElementById('blog-posts-grid');
-        const staticPosts = document.getElementById('static-posts');
-
         getPublishedPosts((posts) => {
             if (posts.length === 0) {
-                // Show static fallback
-                grid.classList.add('hidden');
-                staticPosts.classList.remove('hidden');
+                grid.innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <i data-lucide="book-open" class="w-8 h-8 mx-auto mb-4 text-gold"></i>
+                        <p class="text-soft-gray">No devotionals published yet.</p>
+                    </div>
+                `;
                 lucide.createIcons();
                 return;
             }

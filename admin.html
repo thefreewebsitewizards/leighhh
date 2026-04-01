@@ -322,9 +322,22 @@
 
             if (user) {
                 try {
-                    // Force token refresh to get latest claims
+                    const hasAdminAccess = (claims) => claims.storeId === STORE_ID && claims.role === 'admin';
                     const tokenResult = await user.getIdTokenResult(true);
-                    if (tokenResult.claims.storeId === STORE_ID && tokenResult.claims.role === 'admin') {
+                    let allowed = hasAdminAccess(tokenResult.claims || {});
+
+                    if (!allowed) {
+                        try {
+                            await callFunction('bootstrapAdminClaims', {});
+                            await user.getIdToken(true);
+                            const refreshedTokenResult = await user.getIdTokenResult(true);
+                            allowed = hasAdminAccess(refreshedTokenResult.claims || {});
+                        } catch (bootstrapError) {
+                            allowed = false;
+                        }
+                    }
+
+                    if (allowed) {
                         loginScreen.classList.add('hidden');
                         adminDashboard.classList.remove('hidden');
                         adminEmailDisplay.textContent = user.email;

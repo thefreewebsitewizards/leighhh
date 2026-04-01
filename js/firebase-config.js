@@ -1,7 +1,7 @@
 // Firebase CDN Configuration for Leigh Lusignan Website
 // Uses Firebase compat SDK loaded via CDN in HTML files
 
-const STORE_ID = "leigh-blogs";
+const STORE_ID = "Martin-shakeWagDog";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCqAoxETs_gyv_HWVa6O1jx0nCFZfRBdQA",
@@ -38,12 +38,11 @@ async function callFunction(functionName, data = {}) {
  */
 function getPublishedPosts(callback) {
     return db.collection('stores').doc(STORE_ID).collection('posts')
-        .where('status', '==', 'published')
         .orderBy('createdAt', 'desc')
         .onSnapshot(snapshot => {
             const posts = [];
-            snapshot.forEach(doc => posts.push(doc.data()));
-            callback(posts);
+            snapshot.forEach(doc => posts.push({ id: doc.id, ...doc.data() }));
+            callback(posts.filter(post => post.status === 'published'));
         }, error => {
             console.error('Error fetching posts:', error);
             callback([]);
@@ -58,7 +57,7 @@ function getAllPosts(callback) {
         .orderBy('createdAt', 'desc')
         .onSnapshot(snapshot => {
             const posts = [];
-            snapshot.forEach(doc => posts.push(doc.data()));
+            snapshot.forEach(doc => posts.push({ id: doc.id, ...doc.data() }));
             callback(posts);
         }, error => {
             console.error('Error fetching posts:', error);
@@ -86,12 +85,11 @@ function getPost(postId, callback) {
  */
 function getComments(postId, callback) {
     return db.collection('stores').doc(STORE_ID).collection('comments')
-        .where('postId', '==', postId)
         .orderBy('createdAt', 'desc')
         .onSnapshot(snapshot => {
             const comments = [];
             snapshot.forEach(doc => comments.push({ id: doc.id, ...doc.data() }));
-            callback(comments);
+            callback(comments.filter(comment => comment.postId === postId && (comment.type || 'comment') === 'comment'));
         }, error => {
             console.error('Error fetching comments:', error);
             callback([]);
@@ -124,7 +122,7 @@ async function addComment(commentData) {
         ...commentData,
         id: ref.id,
         storeId: STORE_ID,
-        createdAt: new Date().toISOString()
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
     return ref.id;
 }
@@ -133,7 +131,11 @@ async function addComment(commentData) {
  * Format date string
  */
 function formatDate(dateStr) {
-    const date = new Date(dateStr);
+    if (!dateStr) return '';
+    const date = typeof dateStr.toDate === 'function'
+        ? dateStr.toDate()
+        : new Date(dateStr);
+    if (Number.isNaN(date.getTime())) return '';
     return date.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
